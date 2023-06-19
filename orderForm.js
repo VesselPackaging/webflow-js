@@ -18,16 +18,15 @@ let h = ''; //legacy ordering selector (if blank, then new system)
 
 //Pair of functions to mass add on-click or change conditions to buttons or fields
 //Both work with 2 or 3 variables passed to them [target],[function],[function arguments]. Function arguments are optional and only required if the function expects them
-const setOnClick = (target, func, arg='') => {
-    console.log(target);
-    document.getElementById(target).addEventListener("click", () => window[func](arg));
-};
+function setOnClick(target,func,arg=''){
+	console.log(target);
+	document.getElementById(target).addEventListener("click", function(){window[func](arg)});
+}
 
-const setOnChange = (target, func, arg='') => {
-    console.log(target);
-    document.getElementById(target).addEventListener("change", () => window[func](arg));
-};
-
+function setOnChange(target,func,arg=''){
+	console.log(target);
+	document.getElementById(target).addEventListener("change", function(){window[func](arg)});
+}
 
 //primary startup function when the page is first loaded. Adds onClick and onChange functionality 
 window.onload = function(e){
@@ -106,58 +105,37 @@ window.onload = function(e){
 		['mcLabelsInStock','ToggleInputRev','mcLabelArrive']
 	];
 	//Calls to the above helper functions
-	clickArray.forEach(([elementId, funcName, param]) => {
-	  try {
-		setOnClick(elementId, funcName, param);
-	  } catch (err) {
-		console.log(err);
-	  }
+	clickArray.forEach(function(val,ind){
+		try{setOnClick(clickArray[ind][0],clickArray[ind][1],clickArray[ind][2]);}
+		catch(err){console.log(err)}
 	});
-  
-	changeArray.forEach(([elementId, funcName, param]) => {
-	  try {
-		setOnChange(elementId, funcName, param);
-	  } catch (err) {
-		console.log(err);
-	  }
+
+	changeArray.forEach(function(val,ind){
+		try{setOnChange(changeArray[ind][0],changeArray[ind][1],changeArray[ind][2]);}
+		catch(err){console.log(err)}
 	});
-  
-	// These onChange listeners need to pass the [event] argument which can't be done using the above setOnClick/setOnChange helper functions
-	document.getElementById('mcLayers1').addEventListener("change", (event) => {
-	  mcVolCalc(event);
-	});
-	document.getElementById('mcSize1').addEventListener("change", (event) => {
-	  mcVolCalc(event);
-	});
-	document.getElementById('mcLayers1').addEventListener("change", (event) => {
-	  minMaxValidate(event);
-	});
-	document.getElementById('warehouseTC').addEventListener("click", (event) => {
-	  toggleTC(event);
-	});
-	document.getElementById('mcTC').addEventListener("click", (event) => {
-	  toggleTC(event);
-	});
-	document.getElementById('mcWildYeast').addEventListener("click", (event) => {
-	  toggleTC(event);
-	});
-  
-	document.getElementById('formAlertWrapper').setAttribute("style", "z-index:9999");
-	console.log(Number(Date.now() - time));
-  
-	// Functions to switch the form from loading mode to running mode
+	
+	//these on-change listeners need to pass the [event] argument which can't be done using the above onCilck/onChange helper functions
+	document.getElementById('mcLayers1').addEventListener("change", function(){mcVolCalc(event)});
+	document.getElementById('mcSize1').addEventListener("change", function(){mcVolCalc(event)});
+	document.getElementById('mcLayers1').addEventListener("change",function(){minMaxValidate(event)});
+	document.getElementById('warehouseTC').addEventListener("click",function(){toggleTC(event)});
+	document.getElementById('mcTC').addEventListener("click",function(){toggleTC(event)});
+	document.getElementById('mcWildYeast').addEventListener("click",function(){toggleTC(event)});
+	document.getElementById('formAlertWrapper').setAttribute("style","z-index:9999");
+	console.log(Number(Date.now()-time));
+	
+	//functions to switch the form from loading mode, to running mode
 	Show('updateButton');
 	Hide('loadingTag');
-	setTimeout(() => {
-	  fadeIn('updateButton');
-	}, 100);
-  
-	// The validation script is added to each of the order forms.
+	  setTimeout(function(){ fadeIn('updateButton');}, 100);
+	
+	//the validation script is added to each of the order forms.
 	addValidation('wf-form-companyInfo');
 	addValidation('wf-form-warehouseForm');
 	addValidation('wf-form-mobileCanningForm');
-	initStatus(); // Calls the form initialization function which resets the forms to their defaults. Also used when adding a new product or changing location.
-  }
+	initStatus(); //calls the form initialization function which resets the forms to their defaults. Also used when adding a new product, or changing location.
+}
   
   // Resets the order forms with the exception of the company information form
   // Disables some fields and resets values for input fields
