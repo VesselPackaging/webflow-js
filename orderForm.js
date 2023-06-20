@@ -140,9 +140,32 @@ window.onload = function(e){
 	initStatus(); //calls the form initialization function which resets the forms to their defaults. Also used when adding a new product, or changing location.
 }
 
+// Select the target element
+const whCanCountElement = document.getElementById('whCanCount');
+
+// Create a new MutationObserver
+const observer = new MutationObserver(function (mutationsList) {
+  for (let mutation of mutationsList) {
+    if (mutation.type === 'childList' || mutation.type === 'characterData') {
+      const canQty = parseInt(whCanCountElement.textContent);
+      const boost = ai1_leadtime_boost(canQty);
+      console.log(boost);
+    }
+  }
+});
+
+// Configuration options for the observer
+const observerConfig = {
+  childList: true,
+  characterData: true,
+  subtree: true,
+};
+
+// Start observing the target element
+observer.observe(whCanCountElement, observerConfig);
+
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
-	console.log("IT MADE IT HERE");
     return (canQty > 15000 ? 15 : 5) + (e === 'new' ? 5 : 0);
   };
 
