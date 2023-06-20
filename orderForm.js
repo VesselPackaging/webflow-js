@@ -151,7 +151,7 @@ const observer = new MutationObserver(function (mutationsList) {
     if (mutation.type === 'childList' || mutation.type === 'characterData') {
       const canQty = parseInt(whCanCountElement.textContent);
 	  boost = ai1_leadtime_boost(canQty);
-      console.log(boost);
+      console.log(boost + e);
     }
   }
 });
