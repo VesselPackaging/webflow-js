@@ -514,7 +514,7 @@ function showServiceForm(){
 		Show('labelsOnly')
 		Show('labelOrderTypeWrap');
 		setTimeout(function(){
-			fadeIn('labelOrderTypeWrap');
+			fadeIn('labelsOnly');
 		},300);
 	}
 }
