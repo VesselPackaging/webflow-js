@@ -151,7 +151,7 @@ const observer = new MutationObserver(function (mutationsList) {
     if (mutation.type === 'childList' || mutation.type === 'characterData') {
       const canQty = parseInt(whCanCountElement.textContent);
 	  boost = ai1_leadtime_boost(canQty);
-      console.log(boost + e);
+      console.log(boost + c);
     }
   }
 });
@@ -168,7 +168,7 @@ observer.observe(whCanCountElement, observerConfig);
 
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
-    return (canQty > 15000 ? 15 : 5) + (e === 'new' ? 5 : 0);
+    return (canQty > 15000 ? 15 : 5) + (c === 'new' ? 5 : 0);
   };
 
 //resets the order forms with the exception of the company information form
