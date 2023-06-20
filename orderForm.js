@@ -151,7 +151,7 @@ const observer = new MutationObserver(function (mutationsList) {
 		console.log(boost + c);
   
 		// Update the minimum dates with the new boost value
-		GetMinDate(b);
+		GetMinDate(e);
 	  }
 	}
   });
@@ -1123,10 +1123,10 @@ function GetMinDate(service) {
 		leadtime = getLeadTime("leadTime_warehouse_" + a, 0);
 		break;
 	  case "PSL":
-		leadtime = getLeadTime("leadTime_labels_" + a, 0) + ((e === 'new' || e === 'reorder') ? boost : 0);
+		leadtime = getLeadTime("leadTime_labels_" + a, 0);
 		break;
 	  case "Shrink Sleeve":
-		leadtime = getLeadTime("leadTime_labels_" + a, 2) + ((e === 'new' || e === 'reorder') ? boost : 0);
+		leadtime = getLeadTime("leadTime_labels_" + a, 2);
 		break;
 	  case "Printed":
 		leadtime = getLeadTime("leadTime_warehouse_" + a, 1);
@@ -1138,9 +1138,8 @@ function GetMinDate(service) {
 		leadtime = 0;
 		break;
 	}
-  
+  log
 	f = leadtime;
-	console.log(f);
 	$("#mcDate").datepicker("option", "minDate", leadtime);
 	$("#whShippingDate").datepicker("option", "minDate", leadtime);
   }
