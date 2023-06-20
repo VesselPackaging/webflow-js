@@ -123,6 +123,9 @@ window.onload = function(e){
 	document.getElementById('mcTC').addEventListener("click",function(){toggleTC(event)});
 	document.getElementById('mcWildYeast').addEventListener("click",function(){toggleTC(event)});
 	document.getElementById('formAlertWrapper').setAttribute("style","z-index:9999");
+
+	document.getElementById('totalCansCalc').addEventListener("change",function(){ai1_leadtime_boost(event)});
+
 	console.log(Number(Date.now()-time));
 
 	//functions to switch the form from loading mode, to running mode
@@ -137,6 +140,12 @@ window.onload = function(e){
 	initStatus(); //calls the form initialization function which resets the forms to their defaults. Also used when adding a new product, or changing location.
 }
 
+//adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
+const ai1_leadtime_boost = (canQty) => {
+	console.log(canQty);
+    return (canQty > 15000 ? 15 : 5) + (e === 'new' ? 5 : 0);
+  };
+s
 //resets the order forms with the exception of the company information form
 //disables some fields and resets values for input fields
 function initStatus(){
