@@ -169,6 +169,7 @@ observer.observe(whCanCountElement, observerConfig);
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
     return (canQty > 15000 ? 15 : 5) + (c === 'new' ? 5 : 0);
+	GetMinDate(b)
   };
 
 //resets the order forms with the exception of the company information form
