@@ -124,7 +124,7 @@ window.onload = function(e){
 	document.getElementById('mcWildYeast').addEventListener("click",function(){toggleTC(event)});
 	document.getElementById('formAlertWrapper').setAttribute("style","z-index:9999");
 
-	document.getElementById('whCanCount').addEventListener("change",function(){ai1_leadtime_boost(event)});
+	document.getElementById('totalCansCalc').addEventListener("change",function(){ai1_leadtime_boost(event)});
 
 	console.log(Number(Date.now()-time));
 
@@ -142,7 +142,7 @@ window.onload = function(e){
 
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
-	console.log(canQty);
+	console.log(canQty.target.id);
     return (canQty > 15000 ? 15 : 5) + (e === 'new' ? 5 : 0);
   };
 
