@@ -124,7 +124,7 @@ window.onload = function(e){
 	document.getElementById('mcWildYeast').addEventListener("click",function(){toggleTC(event)});
 	document.getElementById('formAlertWrapper').setAttribute("style","z-index:9999");
 
-	document.getElementById('totalCansCalc').addEventListener("change",function(){ai1_leadtime_boost(event)});
+	document.getElementById('whCanCount').addEventListener("change",function(){ai1_leadtime_boost(event)});
 
 	console.log(Number(Date.now()-time));
 
@@ -145,7 +145,7 @@ const ai1_leadtime_boost = (canQty) => {
 	console.log(canQty);
     return (canQty > 15000 ? 15 : 5) + (e === 'new' ? 5 : 0);
   };
-s
+
 //resets the order forms with the exception of the company information form
 //disables some fields and resets values for input fields
 function initStatus(){
