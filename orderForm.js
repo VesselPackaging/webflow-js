@@ -16,6 +16,8 @@ var alertStatus; //null or 1 based on the valdiation function
 var g = "eng"; //language selector
 var h = ''; //legacy ordering selector (if blank, then new system)
 
+let boost; //the number of days added on for all-in-one options
+
 //Pair of functions to mass add on-click or change conditions to buttons or fields
 //Both work with 2 or 3 variables passed to them [target],[function],[function arguments]. Function arguments are optional and only required if the function expects them
 function setOnClick(target,func,arg=''){
@@ -148,7 +150,7 @@ const observer = new MutationObserver(function (mutationsList) {
   for (let mutation of mutationsList) {
     if (mutation.type === 'childList' || mutation.type === 'characterData') {
       const canQty = parseInt(whCanCountElement.textContent);
-      const boost = ai1_leadtime_boost(canQty);
+	  boost = ai1_leadtime_boost(canQty);
       console.log(boost);
     }
   }
