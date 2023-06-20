@@ -1104,34 +1104,40 @@ function labelUploadTrigger(){
 
 //Helper function to calculate the time horizon for orders based on the service and location
 //Sets the minimum time of the date picker
-function GetMinDate(service){
-	var whLead = document.getElementById("leadTime_warehouse_"+a).innerHTML.match(/(\d+)/g);
-	var labelLead = document.getElementById("leadTime_labels_"+a).innerHTML.match(/(\d+)/g);
-	var mcLead = document.getElementById("leadTime_mobileCanning_"+a).innerHTML.match(/(\d+)/g);
-	console.log("lead times "+whLead);
-	var leadstring;
-	switch(service){
-		case "warehouse":
-			leadstring = whLead[0];
+function GetMinDate(service) {
+	const getLeadTime = (elementId, index) => {
+	  const leadTimeMatch = document.getElementById(elementId).innerHTML.match(/(\d+)/g);
+	  return leadTimeMatch ? Number(leadTimeMatch[index]) : 0;
+	};
+  
+	let leadtime;
+	switch (service) {
+	  case "warehouse":
+		leadtime = getLeadTime("leadTime_warehouse_" + a, 0);
 		break;
-		case "PSL":
-			leadstring = labelLead[0];
+	  case "PSL":
+		leadtime = getLeadTime("leadTime_labels_" + a, 0) + ((e === 'new' || e === 'reorder') ? boost : 0);
 		break;
-		case "Shrink Sleeve":
-			leadstring = labelLead[2];
+	  case "Shrink Sleeve":
+		leadtime = getLeadTime("leadTime_labels_" + a, 2) + ((e === 'new' || e === 'reorder') ? boost : 0);
 		break;
-		case "Printed":
-			leadstring = whLead[1];
+	  case "Printed":
+		leadtime = getLeadTime("leadTime_warehouse_" + a, 1);
 		break;
-		case "mobileCanning":
-			leadstring = mcLead[0];
+	  case "mobileCanning":
+		leadtime = getLeadTime("leadTime_mobileCanning_" + a, 0);
+		break;
+	  default:
+		leadtime = 0;
 		break;
 	}
-	var leadtime = Number(leadstring);
+  
 	f = leadtime;
+	console.log(f);
 	$("#mcDate").datepicker("option", "minDate", leadtime);
-	$("#whShippingDate").datepicker("option", "minDate", leadtime);	
-}
+	$("#whShippingDate").datepicker("option", "minDate", leadtime);
+  }
+  
 
 //Validation helper function
 //Checks the entered or updated value of a field against its min/max value and if it is outside the accepted range, overwrites the label with a warning before resetting the field value
