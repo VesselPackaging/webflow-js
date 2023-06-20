@@ -125,9 +125,6 @@ window.onload = function(e){
 	document.getElementById('mcTC').addEventListener("click",function(){toggleTC(event)});
 	document.getElementById('mcWildYeast').addEventListener("click",function(){toggleTC(event)});
 	document.getElementById('formAlertWrapper').setAttribute("style","z-index:9999");
-
-	document.getElementById('whCanCount').addEventListener("change",function(){ai1_leadtime_boost(event)});
-
 	console.log(Number(Date.now()-time));
 
 	//functions to switch the form from loading mode, to running mode
@@ -147,14 +144,17 @@ const whCanCountElement = document.getElementById('whCanCount');
 
 // Create a new MutationObserver
 const observer = new MutationObserver(function (mutationsList) {
-  for (let mutation of mutationsList) {
-    if (mutation.type === 'childList' || mutation.type === 'characterData') {
-      const canQty = parseInt(whCanCountElement.textContent);
-	  boost = ai1_leadtime_boost(canQty);
-      console.log(boost + c);
-    }
-  }
-});
+	for (let mutation of mutationsList) {
+	  if (mutation.type === 'childList' || mutation.type === 'characterData') {
+		const canQty = parseInt(whCanCountElement.textContent);
+		boost = ai1_leadtime_boost(canQty);
+		console.log(boost + c);
+  
+		// Update the minimum dates with the new boost value
+		GetMinDate(b);
+	  }
+	}
+  });
 
 // Configuration options for the observer
 const observerConfig = {
@@ -166,10 +166,16 @@ const observerConfig = {
 // Start observing the target element
 observer.observe(whCanCountElement, observerConfig);
 
+// Function to update the boost value
+const updateBoost = (newBoost) => {
+	boost = newBoost;
+	// Trigger a mutation event to invoke the observer
+	whCanCountElement.textContent = 'Boost: ' + boost;
+  };
+
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
     return (canQty > 15000 ? 15 : 5) + (c === 'new' ? 5 : 0);
-	GetMinDate(b)
   };
 
 //resets the order forms with the exception of the company information form
