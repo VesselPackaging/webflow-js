@@ -1116,10 +1116,10 @@ function GetMinDate(service) {
 		leadtime = getLeadTime('leadTime_warehouse_' + a, 0);
 		break;
 	  case 'PSL':
-		leadtime = getLeadTime('leadTime_labels_' + a, 0) + ((e === 'new' || e === 'reorder') ? boost : 0);
+		leadtime = getLeadTime('leadTime_labels_' + a, 0) + ((c === 'new' || c === 'reorder') ? boost : 0);
 		break;
 	  case 'Shrink Sleeve':
-		leadtime = getLeadTime('leadTime_labels_' + a, 2) + ((e === 'new' || e === 'reorder') ? boost : 0);
+		leadtime = getLeadTime('leadTime_labels_' + a, 2) + ((c === 'new' || c === 'reorder') ? boost : 0);
 		break;
 	  case 'Printed':
 		leadtime = getLeadTime('leadTime_warehouse_' + a, 1);
