@@ -1107,6 +1107,7 @@ function labelUploadTrigger(){
 function GetMinDate(service) {
 	const getLeadTime = (elementId, index) => {
 	  const leadTimeMatch = document.getElementById(elementId).innerHTML.match(/(\d+)/g);
+	  console.log(leadTimeMatch);
 	  return leadTimeMatch ? Number(leadTimeMatch[index]) : 0;
 	};
   
