@@ -142,7 +142,7 @@ window.onload = function(e){
 
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
-	console.log(canQty.target.id);
+	console.log("IT MADE IT HERE");
     return (canQty > 15000 ? 15 : 5) + (e === 'new' ? 5 : 0);
   };
 
