@@ -165,12 +165,6 @@ const observerConfig = {
 // Start observing the target element
 observer.observe(whCanCountElement, observerConfig);
 
-// Function to update the boost value
-const updateBoost = (newBoost) => {
-	boost = newBoost;
-	// Trigger a mutation event to invoke the observer
-	whCanCountElement.textContent = 'Boost: ' + boost;
-  };
 
 //adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
 const ai1_leadtime_boost = (canQty) => {
@@ -1118,20 +1112,20 @@ function GetMinDate(service) {
   
 	let leadtime;
 	switch (service) {
-	  case "warehouse":
-		leadtime = getLeadTime("leadTime_warehouse_" + a, 0);
+	  case 'warehouse':
+		leadtime = getLeadTime('leadTime_warehouse_' + a, 0);
 		break;
-	  case "PSL":
-		leadtime = getLeadTime("leadTime_labels_" + a, 0);
+	  case 'PSL':
+		leadtime = getLeadTime('leadTime_labels_' + a, 0) + ((e === 'new' || e === 'reorder') ? boost : 0);
 		break;
-	  case "Shrink Sleeve":
-		leadtime = getLeadTime("leadTime_labels_" + a, 2);
+	  case 'Shrink Sleeve':
+		leadtime = getLeadTime('leadTime_labels_' + a, 2) + ((e === 'new' || e === 'reorder') ? boost : 0);
 		break;
-	  case "Printed":
-		leadtime = getLeadTime("leadTime_warehouse_" + a, 1);
+	  case 'Printed':
+		leadtime = getLeadTime('leadTime_warehouse_' + a, 1);
 		break;
-	  case "mobileCanning":
-		leadtime = getLeadTime("leadTime_mobileCanning_" + a, 0);
+	  case 'mobileCanning':
+		leadtime = getLeadTime('leadTime_mobileCanning_' + a, 0);
 		break;
 	  default:
 		leadtime = 0;
