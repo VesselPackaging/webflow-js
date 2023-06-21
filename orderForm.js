@@ -87,7 +87,7 @@ window.onload = function(e){
 		['whCanSize','ToggleInput','whPalletFormat'],
 		['whCanSize','buildOptionsPallets','whPalletFormat'],
 		['whCanSize','ToggleInput','labelPSLLength'],
-		['whCanSize','buildLabelSizes',''],
+		// ['whCanSize','buildLabelSizes',''],
 		['whPalletFormat','whUpdateLayerQty',''],
 		['whPalletFormat','ToggleInput','whPalletCount'],
 		['whPalletFormat','ToggleInput','whLayerCount'],
@@ -497,6 +497,7 @@ function showServiceForm(){
 		Show('labelTypeWrap');
 		Show('legacyLabels');
 		Hide('allInOneLabels');
+		Hide('labelsOnly');
 		setTimeout(function(){
 			fadeIn('labelTypeWrap');
 			fadeIn('legacyLabels');
