@@ -478,6 +478,7 @@ function showServiceForm(){
 		Show('labelTypeWrap');
 		Show('allInOneLabels');
 		Hide('legacyLabels');
+		Hide('labelsOnly');
 		setTimeout(function(){
 			fadeIn('labelTypeWrap');
 			fadeIn('allInOneLabels');
