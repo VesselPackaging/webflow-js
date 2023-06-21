@@ -511,10 +511,22 @@ function showServiceForm(){
 		buildOptions(zb.paktechTypes,"whPakTech");
 	}
 	if(b=='labels'){
-		Show('labelOrderTypeWrap');
+		Show('labelTypeWrap');
+		Show('labelsOnly');
+		Hide('allInOneLabels');
 		setTimeout(function(){
-			fadeIn('labelOrderTypeWrap');
+			fadeIn('labelTypeWrap');
+			fadeIn('labelsOnly');
+			fadeOut('allInOneLabels');
 		},300);
+		removeAll(whCanSize);
+		removeAll(whIncising);
+		removeAll(whTray);
+		removeAll(whPakTech);
+		buildOptions(zb.end.types,"whIncising");
+		buildOptions(zb.tray.types,"whTray");
+		buildOptions(zb.canFormats,"whCanSize");
+		buildOptions(zb.paktechTypes,"whPakTech");
 	}
 }
 
