@@ -511,10 +511,8 @@ function showServiceForm(){
 		buildOptions(zb.paktechTypes,"whPakTech");
 	}
 	if(b=='labels'){
-		Show('labelsOnly')
 		Show('labelOrderTypeWrap');
 		setTimeout(function(){
-			fadeIn('labelsOnly')
 			fadeIn('labelOrderTypeWrap');
 		},300);
 	}
