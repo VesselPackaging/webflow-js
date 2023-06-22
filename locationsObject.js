@@ -234,7 +234,7 @@ const locations = {
 				},
 				"250ml Slim" : {
 					volume : 0.250,
-					layerFactor : 570,
+					layerFactor : 575,
 					labelType : {
 						"Blank Cans" : {
 							min : 10,
@@ -405,7 +405,7 @@ const locations = {
 				},
 				"250ml Slim" : {
 					volume : 0.250,
-					layerFactor : 570,
+					layerFactor : 575,
 					labelType : {
 						"Blank Cans" : {
 							min : 10,

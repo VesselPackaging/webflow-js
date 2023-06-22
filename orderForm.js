@@ -563,6 +563,8 @@ function labelOrderType(type){
 	else{
 		if(e=='PSL'){
 			Show('labelsPSLOptionsDiv');
+			Hide('labelOnlyShipping')
+			Hide('numberOfLabels')
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
 			za.innerHTML = " > PSL";
@@ -571,9 +573,11 @@ function labelOrderType(type){
 		if(e=='PSL Label'){
 			Show('numberOfLabels')
 			Show('labelsPSLOptionsDiv');
+			Show('labelOnlyShipping')
 			Hide('whCanQtyFormatDiv')
 			Hide('whSupplies');
 			Hide('suppliesButtonDiv');
+			Hide('shipDetails');
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
 			za.innerHTML = " > PSL";
@@ -582,6 +586,8 @@ function labelOrderType(type){
 		if(e=='Shrink Sleeve' || e=='SS Label'){
 			za.innerHTML = "> Shrink sleeves";
 			zaFr.innerHTML = "> Manchons rétractables";
+			Hide('labelOnlyShipping')
+			Hide('numberOfLabels')
 			Hide('labelsPSLOptionsDiv');
 		}
 		Show('labelOrderTypeWrap');
