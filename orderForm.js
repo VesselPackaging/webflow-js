@@ -561,8 +561,19 @@ function labelOrderType(type){
 			},300);
 	}
 	else{
-		if(e=='PSL' || e=='PSL Label'){
+		if(e=='PSL'){
 			Show('labelsPSLOptionsDiv');
+			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
+			document.getElementById("labelPSLFinish").selectedIndex  = "0";
+			za.innerHTML = " > PSL";
+			zaFr.innerHTML = " > EAC";
+		}
+		if(e=='PSL Label'){
+			Show('numberOfLabels')
+			Show('labelsPSLOptionsDiv');
+			Hide('whCanQtyFormatDiv')
+			Hide('whSupplies');
+			Hide('suppliesButtonDiv');
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
 			za.innerHTML = " > PSL";
