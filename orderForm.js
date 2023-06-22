@@ -374,8 +374,9 @@ function serviceSelect(service){
 		zaFr.innerHTML = "> Cannettes vierges";}
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
-		zaFr.innerHTML = "> Cannettes decorées";}
+		zaFr.innerHTML = "> Cannettes decorées";
 		h="Legacy;"
+	}
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
 		zaFr.innerHTML = "> Cannettes decorées";}
