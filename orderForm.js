@@ -624,7 +624,7 @@ function labelOrder(type){
 		case 'reorder':
 			za.innerHTML = "> Existing SKU";
 			zaFr.innerHTML = "> USG existante";
-			Show('whCanQtyFormatDiv');
+			// Show('whCanQtyFormatDiv');
 			Hide('changesDiv');
 			Hide('uploadLabel');
 			Show('whSubmitButton');
@@ -634,7 +634,7 @@ function labelOrder(type){
 		case 'new':
 			za.innerHTML = "> New/updated SKU";
 			zaFr.innerHTML = "> Nouvelle/mettre à jour USG";
-			Show('whCanQtyFormatDiv');
+			// Show('whCanQtyFormatDiv');
 			Show('changesDiv');
 			Show('labelToggleUploadDiv');
 			Hide('whSubmitButton');
