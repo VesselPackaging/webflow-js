@@ -186,6 +186,7 @@ function initStatus(){
 					"whPalletCount",
 					"whLayerCount",
 					"whEndCalc",
+					"LabelOnlyQty",
 					"labelPSLLength",
 					"mcTrayType",
 					"mcPakTechType",
@@ -236,6 +237,8 @@ function resetLocation(){
 	Hide('eoNumberDiv');
 	Hide('changesDiv');
 	Hide('labelsPSLOptionsDiv');
+	Hide('labelOnlyShipping');
+	Hide('numberOfLabels');
 	fadeOut('whSupplies');
 	fadeOut('resultDiv');
 	document.getElementById('whCanCount').innerHTML="";
@@ -563,8 +566,13 @@ function labelOrderType(type){
 	else{
 		if(e=='PSL'){
 			Show('labelsPSLOptionsDiv');
+			Show('whCanQtyFormatDiv');
+			Show('whSupplies');
+			Show('suppliesButtonDiv');
+			Show('shipDetails');
 			Hide('labelOnlyShipping')
 			Hide('numberOfLabels')
+			Hide('labelOnlyShipping')
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
 			za.innerHTML = " > PSL";
