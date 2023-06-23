@@ -558,6 +558,7 @@ function labelOrderType(type){
 		Show('whCanQtyFormatDiv');
 		Show('shipDetails');
 		Hide('labelToggleUploadDiv');
+		Hide('labelOnlyShipping')
 		Show('warehouseWrap');
 		Show('manualButton');
 			setTimeout(function(){
@@ -571,7 +572,6 @@ function labelOrderType(type){
 			Show('whCanQtyFormatDiv');
 			Show('suppliesButtonDiv');
 			Show('shipDetails');
-			Hide('labelOnlyShipping')
 			Hide('numberOfLabels')
 			Hide('labelOnlyShipping')
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
