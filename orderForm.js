@@ -555,6 +555,8 @@ function labelOrderType(type){
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/"
 		Hide('labelsPSLOptionsDiv');
 		Show('brandNameDiv');
+		Show('whCanQtyFormatDiv');
+		Show('shipDetails');
 		Hide('labelToggleUploadDiv');
 		Show('warehouseWrap');
 		Show('manualButton');
