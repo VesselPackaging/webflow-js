@@ -588,15 +588,23 @@ function labelOrderType(type){
 			Hide('shipDetails');
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
-			za.innerHTML = " > PSL";
+			za.innerHTML = " > PSL Label";
 			zaFr.innerHTML = " > EAC";
 		}
-		if(e=='Shrink Sleeve' || e=='SS Label'){
+		if(e=='Shrink Sleeve'){
 			za.innerHTML = "> Shrink sleeves";
 			zaFr.innerHTML = "> Manchons rétractables";
 			Hide('labelOnlyShipping')
 			Hide('numberOfLabels')
 			Hide('labelsPSLOptionsDiv');
+		}
+		if(e=='SS Label'){
+			Show('numberOfLabels')
+			Show('labelOnlyShipping')
+			Hide('whCanQtyFormatDiv')
+			Hide('whSupplies');
+			Hide('suppliesButtonDiv');
+			Hide('shipDetails');
 		}
 		Show('labelOrderTypeWrap');
 			setTimeout(function(){
