@@ -567,7 +567,6 @@ function labelOrderType(type){
 		if(e=='PSL'){
 			Show('labelsPSLOptionsDiv');
 			Show('whCanQtyFormatDiv');
-			Show('whSupplies');
 			Show('suppliesButtonDiv');
 			Show('shipDetails');
 			Hide('labelOnlyShipping')
@@ -583,7 +582,6 @@ function labelOrderType(type){
 			Show('labelsPSLOptionsDiv');
 			Show('labelOnlyShipping')
 			Hide('whCanQtyFormatDiv')
-			Hide('whSupplies');
 			Hide('suppliesButtonDiv');
 			Hide('shipDetails');
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
@@ -594,6 +592,7 @@ function labelOrderType(type){
 		if(e=='Shrink Sleeve'){
 			za.innerHTML = "> Shrink sleeves";
 			zaFr.innerHTML = "> Manchons rétractables";
+			Show('suppliesButtonDiv');
 			Hide('labelOnlyShipping')
 			Hide('numberOfLabels')
 			Hide('labelsPSLOptionsDiv');
@@ -602,7 +601,7 @@ function labelOrderType(type){
 			Show('numberOfLabels')
 			Show('labelOnlyShipping')
 			Hide('whCanQtyFormatDiv')
-			Hide('whSupplies');
+			Hide('suppliesButtonDiv');
 			Hide('suppliesButtonDiv');
 			Hide('shipDetails');
 		}
