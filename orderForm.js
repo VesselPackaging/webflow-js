@@ -658,6 +658,7 @@ function labelOrder(type){
 			break;
 	}
   document.getElementById('labelBrandName').value ='';
+  document.getElementById('LabelOnlyQty').value ='';
 
 	fadeOut('labelOrderTypeWrap');
 	setTimeout(function(){
