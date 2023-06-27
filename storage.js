@@ -327,8 +327,6 @@ function showServiceForm(){
         Hide('outboundForm');
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
 		setTimeout(function(){
-			removeAll(whCanSize);
-			removeAll(whIncising);
 			buildOptions(zb.end.types,"whIncising");
 			buildOptions(zb.canFormats,"whCanSize");
 			fadeIn('manualButton');
@@ -342,8 +340,6 @@ function showServiceForm(){
         Hide('whCanFormatDiv')
         document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
         setTimeout(function(){
-			removeAll(whCanSize);
-			removeAll(whIncising);
 			buildOptions(zb.end.types,"whIncising");
 			buildOptions(zb.canFormats,"whCanSize");
 			fadeIn('manualButton');
