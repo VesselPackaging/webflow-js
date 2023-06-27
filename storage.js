@@ -323,6 +323,7 @@ function showServiceForm(){
 	if(b=="inbound"){
         console.log("inbound");
 		Show('inboundForm');
+        fadeIn('inboundForm');
         Hide('outboundForm');
 		Show('whSubmitButton');
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
@@ -337,6 +338,7 @@ function showServiceForm(){
 	}
     if(b=="outbound"){
         console.log("outbound");
+        fadeIn('outboundForm');
         Show('outboundForm');
         Hide('inboundForm');
         document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
