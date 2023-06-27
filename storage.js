@@ -103,7 +103,6 @@ window.onload = function(e){
 	//the validation script is added to each of the order forms.
 	addValidation('wf-form-companyInfo');
 	addValidation('wf-form-warehouseForm');
-	addValidation('wf-form-mobileCanningForm');
 	initStatus(); //calls the form initialization function which resets the forms to their defaults. Also used when adding a new product, or changing location.
 }
 
@@ -295,8 +294,6 @@ function locationSelect(province){
 	catch(err){}
 	buildOptions(locations[a].warehouse.canFormats,'whCanSize');
 	document.getElementById('warehouseTC').value="";
-	document.getElementById('mcWildYeast').value="";
-	document.getElementById('mcTC').value="";
 }
 
 //initial service selection script
@@ -413,12 +410,6 @@ function buildOptionsPallets(){
 	document.getElementById('whPalletCount').value="";
 	document.getElementById('whLayerCount').value="";
 	document.getElementById('whCanCount').innerHTML="";
-}
-//I can't readily recall why I have this sectioned out as a separate function. I think this was added after the fact, but we are using hardcoded PSL values now
-function buildLabelSizes(){
-	//removeAll(labelPSLLength);
-	//var canSize = document.getElementById('whCanSize').value;
-	//buildOptions(labelOptions['PSL'].labelSizes[canSize],'labelPSLLength');
 }
 
 //Helper function to remove all options from a select box
