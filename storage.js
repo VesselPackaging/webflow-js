@@ -234,11 +234,9 @@ function ToggleBreadCrumb(crumb){
 	switch(crumb){
 		case 'a' :
 			resetLocation();
-			h='';
 		break;
 		case 'b' :
 			resetLocation();
-			h='';
 			setTimeout(function(){
 				locationSelect(a);
 				companyInfoValidate('wf-form-companyInfo');
@@ -246,7 +244,6 @@ function ToggleBreadCrumb(crumb){
 		break;
 		case 'c' :
 			resetLocation();
-			h='';
 			setTimeout(function(){
 				locationSelect(a);
 				serviceSelect(b);
@@ -258,10 +255,6 @@ function ToggleBreadCrumb(crumb){
 			setTimeout(function(){
 				locationSelect(a);
 				serviceSelect(b);
-				if(h!=''){
-					h='';
-				}
-					else{labelOrderType(e);}
 				}, 300);
 		break;
 	}
