@@ -285,6 +285,8 @@ function showServiceForm(){
 		Hide('companyInfoWrap');
 		 }, 300);
 	var zb = locations[a].warehouse;
+    buildOptions(zb.end.types,"whIncising");
+    buildOptions(zb.canFormats,"whCanSize");
     console.log("zb: "+zb);
 
 	//branching logic based on if someone selects warehouse orders, or supplies only
@@ -295,11 +297,6 @@ function showServiceForm(){
         fadeIn('inboundForm');
         Hide('outboundForm');
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
-		setTimeout(function(){
-			buildOptions(zb.end.types,"whIncising");
-			buildOptions(zb.canFormats,"whCanSize");
-			fadeIn('manualButton');
-		},300);
 	}
     if(b=="outbound"){
         console.log("outbound");
@@ -308,11 +305,6 @@ function showServiceForm(){
         Hide('inboundForm');
         Hide('whCanFormatDiv')
         document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
-        setTimeout(function(){
-			buildOptions(zb.end.types,"whIncising");
-			buildOptions(zb.canFormats,"whCanSize");
-			fadeIn('manualButton');
-		},300);
     }
 }
 
