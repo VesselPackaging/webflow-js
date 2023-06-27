@@ -607,14 +607,9 @@ function ToggleDisplay(target){
 }
 //Helper function to toggle the submitting or form information and hiding the associated forms, then showing the result div
 function formSubmit(target){
-	Hide('mobileCanningWrap');
-	Hide('outboundForm');
-    Hide('inboundForm');
 	Hide('resetRow');
 	setTimeout(function(){ 
 		fadeOut('mobileCanningWrap');
-		fadeOut('outboundForm');
-        fadeOut('inboundForm');
 		fadeOut('resetRow');
 	},300);
 
