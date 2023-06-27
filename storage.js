@@ -321,6 +321,7 @@ function showServiceForm(){
 	//branching logic based on if someone selects warehouse orders, or supplies only
 	//
 	if(b=="inbound"){
+        console.log("inbound");
 		Show('inboundForm');
         Hide('outboundForm');
 		Show('whSubmitButton');
@@ -335,6 +336,7 @@ function showServiceForm(){
 		// },300);
 	}
     if(b=="outbound"){
+        console.log("outbound");
         Show('outboundForm');
         Hide('inboundForm');
         document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
