@@ -285,6 +285,7 @@ function showServiceForm(){
 		Hide('companyInfoWrap');
 		 }, 300);
 	var zb = locations[a].warehouse;
+    console.log("zb: "+zb);
 
 	//branching logic based on if someone selects warehouse orders, or supplies only
 	//
