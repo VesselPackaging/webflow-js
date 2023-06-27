@@ -170,7 +170,8 @@ function resetLocation(){
 	fadeOut('labelTypeWrap');
 	fadeOut('labelOrderTypeWrap');
 	fadeOut('labelPrintTypeWrap');
-	fadeOut('warehouseWrap');
+	fadeOut('outboundForm');
+    fadeOut('inboundForm');
 	fadeOut('resetRow');
 	fadeOut('manualButton');
 	setTimeout(function(){ fadeIn('locationSelection') }, 300);
@@ -179,7 +180,8 @@ function resetLocation(){
 						   Hide('labelTypeWrap');
 						   Hide('labelOrderTypeWrap');
 						   Hide('labelPrintTypeWrap');
-						   Hide('warehouseWrap');
+						   Hide('outboundForm');
+                           Hide('inboundForm');
 						   Hide('resetRow');
 						   Hide('manualButton');
                Hide('manualwhSubmitButton');
@@ -306,7 +308,7 @@ function showServiceForm(){
 	//takes the company information and copies it to hidden fields that are sent to zapier
 	copyCompanyInfo(b); 		
 	//get lead times based on the service selection
-		if(b == "supplies" || b == "inbound" || b == "outbound"){
+		if(b == "inbound" || b == "outbound"){
 		GetMinDate('warehouse');
 	}
 	else{GetMinDate(b);}
@@ -321,43 +323,23 @@ function showServiceForm(){
 
 	//branching logic based on if someone selects warehouse orders, or supplies only
 	//
-	if(b=="warehouse" || b=="supplies"){
-		Hide('labelToggleUploadDiv');
-		Hide('brandNameDiv');
-		Hide('labelToggleUpload');
+	if(b=="inbound"){
+		Show('inboundForm');
 		Show('whSubmitButton');
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
-		document.getElementById('whTrayCount').value="";
-		document.getElementById('whTrayCount').max = zb.tray.max;
-		$("label[for='whTrayCount']").html(zb.tray.format+' ('+zb.tray.units+')*');
-
-		if(b=="inbound"){
-			e="Blank Cans";
-			Show('whCanFormatDiv');
-			Show('whCanQtyFormatDiv');
-		}
-		else{
-			e="outbound";
-			Hide('whCanFormatDiv');
-			Hide('whCanQtyFormatDiv');
-			ToggleDisplay('whSupplies');
-		}
-		Show('warehouseWrap');
-		Show('manualButton');
-		setTimeout(function(){
-			fadeIn('warehouseWrap');
-			removeAll(whCanSize);
-			removeAll(whIncising);
-			removeAll(whTray);
-			removeAll(whPakTech);
-			buildOptions(zb.end.types,"whIncising");
-			buildOptions(zb.tray.types,"whTray");
-			buildOptions(zb.canFormats,"whCanSize");
-			buildOptions(zb.paktechTypes,"whPakTech");
-			fadeIn('manualButton');
-		},300);
-
+		// setTimeout(function(){
+		// 	fadeIn('outboundForm');
+		// 	removeAll(whCanSize);
+		// 	removeAll(whIncising);
+		// 	buildOptions(zb.end.types,"whIncising");
+		// 	buildOptions(zb.canFormats,"whCanSize");
+		// 	fadeIn('manualButton');
+		// },300);
 	}
+    if(b=="outbound"){
+        Show('outboundForm');
+        document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
+    }
 }
 
 
@@ -626,11 +608,13 @@ function ToggleDisplay(target){
 //Helper function to toggle the submitting or form information and hiding the associated forms, then showing the result div
 function formSubmit(target){
 	Hide('mobileCanningWrap');
-	Hide('warehouseWrap');
+	Hide('outboundForm');
+    Hide('inboundForm');
 	Hide('resetRow');
 	setTimeout(function(){ 
 		fadeOut('mobileCanningWrap');
-		fadeOut('warehouseWrap');
+		fadeOut('outboundForm');
+        fadeOut('inboundForm');
 		fadeOut('resetRow');
 	},300);
 
