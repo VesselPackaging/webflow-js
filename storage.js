@@ -99,38 +99,6 @@ window.onload = function(e){
 	initStatus(); //calls the form initialization function which resets the forms to their defaults. Also used when adding a new product, or changing location.
 }
 
-// Select the target element
-const whCanCountElement = document.getElementById('whCanCount');
-
-// Create a new MutationObserver
-const observer = new MutationObserver(function (mutationsList) {
-	for (let mutation of mutationsList) {
-	  if (mutation.type === 'childList' || mutation.type === 'characterData') {
-		const canQty = parseInt(whCanCountElement.textContent);
-		boost = ai1_leadtime_boost(canQty);
-  
-		// Update the minimum dates with the new boost value
-		GetMinDate(e);
-	  }
-	}
-  });
-
-// Configuration options for the observer
-const observerConfig = {
-  childList: true,
-  characterData: true,
-  subtree: true,
-};
-
-// Start observing the target element
-observer.observe(whCanCountElement, observerConfig);
-
-
-//adds leadtime if allInOne - new art = 5 -- digital = 5 -- flexo = 15
-const ai1_leadtime_boost = (canQty) => {
-    return (canQty > 15000 ? 15 : 5) + (c === 'new' ? 5 : 0);
-  };
-
 //resets the order forms with the exception of the company information form
 //disables some fields and resets values for input fields
 function initStatus(){
@@ -351,6 +319,8 @@ function showServiceForm(){
 //Helper function to build the select field options based on the JSON settings for each location
 function buildOptions(srcArray,target){
 	console.log("builOptions target: "+target);
+    console.log("srcArray: "+srcArray);
+
 	var za = document.createElement("option");
 		za.value = "";
 		za.innerHTML = "Please select / Sélectionner une";
