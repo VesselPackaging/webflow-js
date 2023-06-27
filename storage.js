@@ -204,11 +204,8 @@ function resetLocation(){
 		}
 	catch(err){};
   	document.getElementById('warehouseTC').checked = false;
-	document.getElementById('mcTC').checked = false;
-	document.getElementById('mcWildYeast').checked = false;
 	document.getElementById('warehouseTC').value = "";
 	document.getElementById('mcTC').value = "";
-	document.getElementById('mcWildYeast').value = "";
 	$('.w-checkbox-input').removeClass('w--redirected-checked');
 }
 
@@ -325,6 +322,7 @@ function showServiceForm(){
 	//
 	if(b=="inbound"){
 		Show('inboundForm');
+        Hide('outboundForm');
 		Show('whSubmitButton');
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
 		// setTimeout(function(){
@@ -338,6 +336,7 @@ function showServiceForm(){
 	}
     if(b=="outbound"){
         Show('outboundForm');
+        Hide('inboundForm');
         document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
     }
 }
