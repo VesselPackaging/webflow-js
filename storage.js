@@ -72,12 +72,6 @@ window.onload = function(e){
 		['whIncising','ToggleSleeveQTY',''],
 		['whIncising','EndsCalc',''],
 		['whEndCount','EndsCalc',''],
-		['whPakTech','ToggleInput','whPakTechCount'],
-		['whTray','ToggleInput','whTrayCount'],
-		['mcTray','ToggleInput','mcTrayType'],
-		['mcPakTech','ToggleInput','mcPakTechType'],
-		['mcPakTech','ToggleInput','mcPaktechBoxes'],
-		['mcEndsProvided','ToggleIncising',''],
 	];
 	//Calls to the above helper functions
 	clickArray.forEach(function(val,ind){
