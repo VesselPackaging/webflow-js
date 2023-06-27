@@ -108,13 +108,13 @@ function initStatus(){
 		document.getElementById("wf-form-warehouseForm").reset();}
 	catch(err){} 
 	var disableArray=[
-                    // "whPalletFormat",
-					// "whEndCount",
+                    "whPalletFormat",
+					"whEndCount",
 					// "whPakTechCount",
 					// "whTrayCount",
-					// "whPalletCount",
-					// "whLayerCount",
-					// "whEndCalc",
+					"whPalletCount",
+					"whLayerCount",
+					"whEndCalc"
 					// "labelPSLLength"
                 ];
 
