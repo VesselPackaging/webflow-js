@@ -140,14 +140,16 @@ function initStatus(){
 	try{document.getElementById("wf-form-mobileCanningForm").reset();
 		document.getElementById("wf-form-warehouseForm").reset();}
 	catch(err){} 
-	var disableArray=["whPalletFormat",
-					"whEndCount",
-					"whPakTechCount",
-					"whTrayCount",
-					"whPalletCount",
-					"whLayerCount",
-					"whEndCalc",
-					"labelPSLLength"];
+	var disableArray=[
+                    // "whPalletFormat",
+					// "whEndCount",
+					// "whPakTechCount",
+					// "whTrayCount",
+					// "whPalletCount",
+					// "whLayerCount",
+					// "whEndCalc",
+					// "labelPSLLength"
+                ];
 
 	disableArray.forEach(function(val,ind){
 		document.getElementById(disableArray[ind]).disabled = true;
