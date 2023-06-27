@@ -524,6 +524,7 @@ function companyInfoValidate(target){
 	if(alertStatus == 0){
 		fadeOut('companyInfoWrap');
 		setTimeout(function(){ Hide('companyInfoWrap') }, 300);
+        console.log("It worked here");
 		Show('serviceSelectionWrap');
 		setTimeout(function(){ fadeIn('serviceSelectionWrap');}, 300);
 	}
