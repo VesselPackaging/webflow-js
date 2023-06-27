@@ -199,7 +199,8 @@ function toggleTC(event){
 function ToggleBreadCrumb(crumb){
 	switch(crumb){
 		case 'a' :
-			resetLocation();
+            locationSelect(a);
+            serviceSelect(b);
 		break;
 		case 'b' :
 			resetLocation();
