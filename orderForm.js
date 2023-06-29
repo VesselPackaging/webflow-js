@@ -373,6 +373,7 @@ function serviceSelect(service){
 	if(b=='allInOne'){
 		za.innerHTML = "> Cans + Labels";
 		zaFr.innerHTML = "> Cannettes vierges";}
+		SSonly = false;
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
 		zaFr.innerHTML = "> Cannettes decorées";}
@@ -380,15 +381,18 @@ function serviceSelect(service){
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
 		zaFr.innerHTML = "> Cannettes decorées";}
+		SSonly = false;
 	if(b=='warehouse'){
 		za.innerHTML = "> Blank cans";
 		zaFr.innerHTML = "> Cannettes vierges";}
+		SSonly = false;
 	if(b=="supplies"){
 		za.innerHTML = "> Supplies Only";
 		zaFr.innerHTML = "> Supplies Seulment";}
 	if(b=='mobileCanning'){
 		za.innerHTML = "> Mobile canning";
 		zaFr.innerHTML = "> Mise en cannette mobile";}
+		SSonly = false;
 	showServiceForm();
 }
 
@@ -446,12 +450,14 @@ function showServiceForm(){
 		$("label[for='whTrayCount']").html(zb.tray.format+' ('+zb.tray.units+')*');
 
 		if(b=="warehouse"){
+			SSonly = false;
 			e="Blank Cans";
 			Show('whCanFormatDiv');
 			Show('whCanQtyFormatDiv');
 		}
 		else{
 			e="Supplies Only";
+			SSonly = false;
 			Hide('whCanFormatDiv');
 			Hide('whCanQtyFormatDiv');
 			ToggleDisplay('whSupplies');
@@ -476,6 +482,7 @@ function showServiceForm(){
 	//Decorated can orders
 	//removes and rebuilds the can size options to ensure they aren't carried over from resetting a location or using the breadcrumb
 	if(b=="allInOne"){
+		SSonly = false;
 		Show('labelTypeWrap');
 		Show('allInOneLabels');
 		Hide('legacyLabels');
@@ -494,6 +501,7 @@ function showServiceForm(){
 		buildOptions(zb.paktechTypes,"whPakTech");
 	}
 	if(b=="application"){
+		SSonly = false;
 		Show('labelTypeWrap');
 		Show('legacyLabels');
 		Hide('allInOneLabels');
