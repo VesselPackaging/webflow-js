@@ -377,8 +377,8 @@ function serviceSelect(service){
 		zaFr.innerHTML = "> Cannettes vierges";}
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
-		zaFr.innerHTML = "> Cannettes decorées";}
-		SSonly = true;
+		zaFr.innerHTML = "> Cannettes decorées";
+		SSonly = true;}
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
 		zaFr.innerHTML = "> Cannettes decorées";}
@@ -580,6 +580,11 @@ function labelOrderType(type){
 
 //For non-legacy label orders only, allows the specification of a new SKU or updated SKU
 function labelOrder(type){
+	if(b=='labels'){
+		SSonly = true;
+	}else{
+		SSonly = false;
+	}
 	c=type;
 	document.getElementById('uploadLabelType').value = c;
 	var za = document.getElementById('subServiceTitle');
