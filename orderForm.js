@@ -292,9 +292,11 @@ function ToggleBreadCrumb(crumb){
 		case 'a' :
 			resetLocation();
 			h='';
+			SSonly = false;
 		break;
 		case 'b' :
 			resetLocation();
+			SSonly = false;
 			h='';
 			setTimeout(function(){
 				locationSelect(a);
