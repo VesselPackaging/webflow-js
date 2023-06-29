@@ -596,6 +596,7 @@ function labelOrder(type){
 				Hide('whFormShipToTitle')
 				Hide('shipAddress')
 				Hide('suppliesButtonDiv')
+				Hide('dunnageSelector')
 				Show('whSubmitButton');
 				Show('numberOfLabels')
 			}else{
@@ -621,6 +622,7 @@ function labelOrder(type){
 				Hide('whFormShipToTitle')
 				Hide('shipAddress')
 				Hide('suppliesButtonDiv')
+				Hide('dunnageSelector')
 
 			}else{
 				Show('whCanQtyFormatDiv');
