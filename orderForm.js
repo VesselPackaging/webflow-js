@@ -373,7 +373,6 @@ function serviceSelect(service){
 	if(b=='allInOne'){
 		za.innerHTML = "> Cans + Labels";
 		zaFr.innerHTML = "> Cannettes vierges";}
-		SSonly = false;
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
 		zaFr.innerHTML = "> Cannettes decorées";}
@@ -381,19 +380,15 @@ function serviceSelect(service){
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
 		zaFr.innerHTML = "> Cannettes decorées";}
-		SSonly = false;
 	if(b=='warehouse'){
 		za.innerHTML = "> Blank cans";
 		zaFr.innerHTML = "> Cannettes vierges";}
-		SSonly = false;
 	if(b=="supplies"){
 		za.innerHTML = "> Supplies Only";
 		zaFr.innerHTML = "> Supplies Seulment";}
-		SSonly = false;
 	if(b=='mobileCanning'){
 		za.innerHTML = "> Mobile canning";
 		zaFr.innerHTML = "> Mise en cannette mobile";}
-		SSonly = false;
 	showServiceForm();
 }
 
