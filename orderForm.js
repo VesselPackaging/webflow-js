@@ -87,7 +87,7 @@ window.onload = function(e){
 		['whCanSize','ToggleInput','whPalletFormat'],
 		['whCanSize','buildOptionsPallets','whPalletFormat'],
 		['whCanSize','ToggleInput','labelPSLLength'],
-		// ['whCanSize','buildLabelSizes',''],
+		['whCanSize','buildLabelSizes',''],
 		['whPalletFormat','whUpdateLayerQty',''],
 		['whPalletFormat','ToggleInput','whPalletCount'],
 		['whPalletFormat','ToggleInput','whLayerCount'],
@@ -186,7 +186,6 @@ function initStatus(){
 					"whPalletCount",
 					"whLayerCount",
 					"whEndCalc",
-					"LabelOnlyQty",
 					"labelPSLLength",
 					"mcTrayType",
 					"mcPakTechType",
@@ -237,8 +236,6 @@ function resetLocation(){
 	Hide('eoNumberDiv');
 	Hide('changesDiv');
 	Hide('labelsPSLOptionsDiv');
-	Hide('labelOnlyShipping');
-	Hide('numberOfLabels');
 	fadeOut('whSupplies');
 	fadeOut('resultDiv');
 	document.getElementById('whCanCount').innerHTML="";
@@ -377,9 +374,8 @@ function serviceSelect(service){
 		zaFr.innerHTML = "> Cannettes vierges";}
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
-		zaFr.innerHTML = "> Cannettes decorées";
+		zaFr.innerHTML = "> Cannettes decorées";}
 		h="Legacy;"
-	}
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
 		zaFr.innerHTML = "> Cannettes decorées";}
@@ -482,7 +478,6 @@ function showServiceForm(){
 		Show('labelTypeWrap');
 		Show('allInOneLabels');
 		Hide('legacyLabels');
-		Hide('labelsOnly');
 		setTimeout(function(){
 			fadeIn('labelTypeWrap');
 			fadeIn('allInOneLabels');
@@ -501,7 +496,6 @@ function showServiceForm(){
 		Show('labelTypeWrap');
 		Show('legacyLabels');
 		Hide('allInOneLabels');
-		Hide('labelsOnly');
 		setTimeout(function(){
 			fadeIn('labelTypeWrap');
 			fadeIn('legacyLabels');
@@ -517,23 +511,10 @@ function showServiceForm(){
 		buildOptions(zb.paktechTypes,"whPakTech");
 	}
 	if(b=='labels'){
-		Show('labelTypeWrap');
-		Show('labelsOnly');
-		Hide('allInOneLabels');
-		Hide('legacyLabels');
+		Show('labelOrderTypeWrap');
 		setTimeout(function(){
-			fadeIn('labelTypeWrap');
-			fadeIn('labelsOnly');
-			fadeOut('allInOneLabels');
+			fadeIn('labelOrderTypeWrap');
 		},300);
-		removeAll(whCanSize);
-		removeAll(whIncising);
-		removeAll(whTray);
-		removeAll(whPakTech);
-		buildOptions(zb.end.types,"whIncising");
-		buildOptions(zb.tray.types,"whTray");
-		buildOptions(zb.canFormats,"whCanSize");
-		buildOptions(zb.paktechTypes,"whPakTech");
 	}
 }
 
@@ -555,10 +536,7 @@ function labelOrderType(type){
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/"
 		Hide('labelsPSLOptionsDiv');
 		Show('brandNameDiv');
-		Show('whCanQtyFormatDiv');
-		Show('shipDetails');
 		Hide('labelToggleUploadDiv');
-		Hide('labelOnlyShipping')
 		Show('warehouseWrap');
 		Show('manualButton');
 			setTimeout(function(){
@@ -567,45 +545,17 @@ function labelOrderType(type){
 			},300);
 	}
 	else{
-		if(e=='PSL'){
+		if(e=='PSL' || e=='PSL Label'){
 			Show('labelsPSLOptionsDiv');
-			Show('whCanQtyFormatDiv');
-			Show('suppliesButtonDiv');
-			Show('shipDetails');
-			Hide('numberOfLabels')
-			Hide('labelOnlyShipping')
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
 			za.innerHTML = " > PSL";
 			zaFr.innerHTML = " > EAC";
 		}
-		if(e=='PSL Label'){
-			Show('numberOfLabels')
-			Show('labelsPSLOptionsDiv');
-			Show('labelOnlyShipping')
-			Hide('whCanQtyFormatDiv')
-			Hide('suppliesButtonDiv');
-			Hide('shipDetails');
-			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
-			document.getElementById("labelPSLFinish").selectedIndex  = "0";
-			za.innerHTML = " > PSL Label";
-			zaFr.innerHTML = " > EAC";
-		}
-		if(e=='Shrink Sleeve'){
+		if(e=='Shrink Sleeve' || e=='SS Label'){
 			za.innerHTML = "> Shrink sleeves";
 			zaFr.innerHTML = "> Manchons rétractables";
-			Show('suppliesButtonDiv');
-			Hide('labelOnlyShipping')
-			Hide('numberOfLabels')
 			Hide('labelsPSLOptionsDiv');
-		}
-		if(e=='SS Label'){
-			Show('numberOfLabels')
-			Show('labelOnlyShipping')
-			Hide('whCanQtyFormatDiv')
-			Hide('suppliesButtonDiv');
-			Hide('suppliesButtonDiv');
-			Hide('shipDetails');
 		}
 		Show('labelOrderTypeWrap');
 			setTimeout(function(){
@@ -626,7 +576,7 @@ function labelOrder(type){
 		case 'reorder':
 			za.innerHTML = "> Existing SKU";
 			zaFr.innerHTML = "> USG existante";
-			// Show('whCanQtyFormatDiv');
+			Show('whCanQtyFormatDiv');
 			Hide('changesDiv');
 			Hide('uploadLabel');
 			Show('whSubmitButton');
@@ -636,7 +586,7 @@ function labelOrder(type){
 		case 'new':
 			za.innerHTML = "> New/updated SKU";
 			zaFr.innerHTML = "> Nouvelle/mettre à jour USG";
-			// Show('whCanQtyFormatDiv');
+			Show('whCanQtyFormatDiv');
 			Show('changesDiv');
 			Show('labelToggleUploadDiv');
 			Hide('whSubmitButton');
@@ -658,7 +608,6 @@ function labelOrder(type){
 			break;
 	}
   document.getElementById('labelBrandName').value ='';
-  document.getElementById('LabelOnlyQty').value ='';
 
 	fadeOut('labelOrderTypeWrap');
 	setTimeout(function(){
