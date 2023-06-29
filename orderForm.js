@@ -15,6 +15,7 @@ var f; //calculated lead time offset (numeric based on selected service)
 var alertStatus; //null or 1 based on the valdiation function
 var g = "eng"; //language selector
 var h = ''; //legacy ordering selector (if blank, then new system)
+let SSonly = false; //flag to indicate if the order is for Shrink Sleeves only
 
 let boost; //the number of days added on for all-in-one options
 
@@ -375,7 +376,7 @@ function serviceSelect(service){
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
 		zaFr.innerHTML = "> Cannettes decorées";}
-		h="Legacy;"
+		SSonly = true;
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
 		zaFr.innerHTML = "> Cannettes decorées";}
@@ -520,7 +521,11 @@ function showServiceForm(){
 
 //branching logic for decorated can orders
 function labelOrderType(type){
-	e=type;
+	if(SSonly == true){
+		e = 'SS Label';
+	}else{
+		e=type;
+	}
 	document.getElementById('uploadOrderType').value=e;
 	GetMinDate(type);
 	var za = document.getElementById('labelServiceTitle');
@@ -552,9 +557,15 @@ function labelOrderType(type){
 			za.innerHTML = " > PSL";
 			zaFr.innerHTML = " > EAC";
 		}
-		if(e=='Shrink Sleeve' || e=='SS Label'){
+		if(e=='Shrink Sleeve'){
 			za.innerHTML = "> Shrink sleeves";
 			zaFr.innerHTML = "> Manchons rétractables";
+			Hide('labelsPSLOptionsDiv');
+		}
+		if(e=='SS Label'){
+			za.innerHTML = "> Shrink sleeves Only";
+			zaFr.innerHTML = "> Manchons rétractables";
+			Show('numberOfLabels')
 			Hide('labelsPSLOptionsDiv');
 		}
 		Show('labelOrderTypeWrap');
@@ -576,21 +587,48 @@ function labelOrder(type){
 		case 'reorder':
 			za.innerHTML = "> Existing SKU";
 			zaFr.innerHTML = "> USG existante";
-			Show('whCanQtyFormatDiv');
-			Hide('changesDiv');
-			Hide('uploadLabel');
-			Show('whSubmitButton');
-			Hide('labelToggleUploadDiv');
+			if(SSonly == true){
+				Hide('whCanQtyFormatDiv');
+				Hide('changesDiv');
+				Hide('uploadLabel');
+				Hide('labelToggleUploadDiv');
+				Hide('whFormShipToText')
+				Hide('whFormShipToTitle')
+				Hide('shipAddress')
+				Hide('suppliesButtonDiv')
+				Show('whSubmitButton');
+				Show('numberOfLabels')
+			}else{
+				Show('whCanQtyFormatDiv');
+				Hide('changesDiv');
+				Hide('uploadLabel');
+				Show('whSubmitButton');
+				Hide('labelToggleUploadDiv');
+			}
 			document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/";
 			break;
 		case 'new':
 			za.innerHTML = "> New/updated SKU";
 			zaFr.innerHTML = "> Nouvelle/mettre à jour USG";
-			Show('whCanQtyFormatDiv');
-			Show('changesDiv');
-			Show('labelToggleUploadDiv');
-			Hide('whSubmitButton');
-			Hide('uploadLabel');
+			if(SSonly == true){
+				Show('numberOfLabels')
+				Show('changesDiv');
+				Show('labelToggleUploadDiv');
+				Hide('whCanQtyFormatDiv');
+				Hide('whSubmitButton');
+				Hide('uploadLabel');
+				Hide('whFormShipToText')
+				Hide('whFormShipToTitle')
+				Hide('shipAddress')
+				Hide('suppliesButtonDiv')
+
+			}else{
+				Show('whCanQtyFormatDiv');
+				Show('changesDiv');
+				Show('labelToggleUploadDiv');
+				Hide('whSubmitButton');
+				Hide('uploadLabel');
+			}
 			document.getElementById('wf-form-warehouseForm').action = 'https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/';
 			break;
 
