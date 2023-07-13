@@ -271,6 +271,41 @@ function toggleTC(event){
 	}
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    var trayInputField = document.getElementById('whTrayCalc');
+    trayInputField.disabled = true;
+
+    var pakInputField = document.getElementById('whPakCalc');
+    pakInputField.disabled = true;
+});
+
+
+function TraysCalc(event){
+	var za = document.getElementById('whTray');
+	var zb = document.getElementById('whTrayCount');
+	var zc = document.getElementById('whTrayCalc');
+  if(a=="MISS"){
+  	zc.value = zb.value * 24;
+  }else{
+  	zc.value = zb.value * 50 * 24;
+  }
+}
+
+function PakCalc(event) {
+  var za = document.getElementById('whPakTech');
+  var zb = document.getElementById('whPakTechCount');
+  var zc = document.getElementById('whPakCalc');
+
+  var multiplier = 0;
+  if (za.value === "4pk Black (788/box)" || za.value === "4pk White (788/box)") {
+    multiplier = 3152;
+  } else if (za.value === "6pk Black (510/box)" || za.value === "6pk White (510/box)") {
+    multiplier = 3060;
+  }
+
+  zc.value = zb.value * multiplier;
+}
+
 //function that calls the general "Contact Us" form, but updates some fields with the company information
 function ToggleFTLBlankContactForm(){
 	ToggleDisplay2('contactForm');
