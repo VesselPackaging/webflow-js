@@ -60,7 +60,7 @@ window.onload = function(e){
 		['labelOrderButtonPSLLegacy','LegacyOrder','PSL'],
 		['labelOrderButtonSSLegacy','LegacyOrder','Shrink Sleeve'],
 		['labelsOnlyOrderButtonSS','labelOrderType','SS Label'],
-		['labelsOnlyOrderButtonPSL','labelOrderType','PSL Label'],
+		// ['labelsOnlyOrderButtonPSL','labelOrderType','PSL Label'],
 		['labelOrderButtonExisting','labelOrder','reorder'],
 		['labelOrderButtonNew','labelOrder','new'],
 		//['labelOrderButtonArtwork','labelOrder','artwork'],
@@ -413,6 +413,7 @@ function serviceSelect(service){
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
 		zaFr.innerHTML = "> Cannettes decorées";
+		labelOrderType('SS Label')
 		SSonly = true;}
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
