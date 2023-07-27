@@ -584,6 +584,7 @@ function labelOrderType(type){
 		Hide('labelsPSLOptionsDiv');
 		Show('brandNameDiv');
 		Hide('labelToggleUploadDiv');
+		Hide('numberOfLabels')
 		Show('warehouseWrap');
 		Show('manualButton');
 			setTimeout(function(){
@@ -593,6 +594,7 @@ function labelOrderType(type){
 	}
 	else{
 		if(e=='PSL' || e=='PSL Label'){
+			Hide('numberOfLabels')
 			Show('labelsPSLOptionsDiv');
 			document.getElementById("labelPSLMaterial").selectedIndex  = "0";
 			document.getElementById("labelPSLFinish").selectedIndex  = "0";
@@ -600,6 +602,7 @@ function labelOrderType(type){
 			zaFr.innerHTML = " > EAC";
 		}
 		if(e=='Shrink Sleeve'){
+			Hide('numberOfLabels')
 			za.innerHTML = "> Shrink sleeves";
 			zaFr.innerHTML = "> Manchons rétractables";
 			Hide('labelsPSLOptionsDiv');
