@@ -603,7 +603,6 @@ function labelOrderType(type){
 		if(e=='SS Label'){
 			za.innerHTML = "> Shrink Sleeves Only";
 			zaFr.innerHTML = "> Manchons rétractables";
-			document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,3bugk51/silent/";
 			Show('numberOfLabels')
 			Hide('labelsPSLOptionsDiv');
 		}
@@ -643,7 +642,7 @@ function labelOrder(type){
 				Hide('dunnageSelector')
 				Show('whSubmitButton');
 				Show('numberOfLabels')
-				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,3bugk51/silent/";
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/3bugk51/silent/";
 			}else{
 				Show('whCanQtyFormatDiv');
 				Hide('changesDiv');
@@ -668,7 +667,7 @@ function labelOrder(type){
 				Hide('shipAddress')
 				Hide('suppliesButtonDiv')
 				Hide('dunnageSelector')
-				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,3bugk51/silent/";
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/3bugk51/silent/";
 
 			}else{
 				Show('whCanQtyFormatDiv');
