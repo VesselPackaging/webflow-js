@@ -187,6 +187,8 @@ function initStatus(){
 					"whPalletCount",
 					"whLayerCount",
 					"whEndCalc",
+					"whPakCalc",
+					"whTrayCalc",
 					"labelPSLLength",
 					"mcTrayType",
 					"mcPakTechType",
