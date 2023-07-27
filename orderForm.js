@@ -98,6 +98,8 @@ window.onload = function(e){
 		['whIncising','ToggleSleeveQTY',''],
 		['whIncising','EndsCalc',''],
 		['whEndCount','EndsCalc',''],
+		['whPakTechCount', 'PakCalc', ''],
+		['whTrayCount','TraysCalc',''],
 		['whPakTech','ToggleInput','whPakTechCount'],
 		['whTray','ToggleInput','whTrayCount'],
 		['mcTray','ToggleInput','mcTrayType'],
