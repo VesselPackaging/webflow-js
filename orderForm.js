@@ -659,7 +659,6 @@ function labelOrder(type){
 				Show('numberOfLabels')
 				Show('changesDiv');
 				Show('labelToggleUploadDiv');
-				Show('uploadLabel');
 				Hide('whCanQtyFormatDiv');
 				Hide('whSubmitButton');
 				Hide('whFormShipToText')
