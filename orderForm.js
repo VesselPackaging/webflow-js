@@ -1489,8 +1489,7 @@ function styleManualRequest(){
   zb.style.height = "100%";}
 
 
-
-// function to help labelqty input field only accept numbers
+// Set the minimum value to 15,000
 const numericInput = document.getElementById('labelQty');
 
 // Set the minimum value to 15,000
@@ -1508,18 +1507,21 @@ numericInput.addEventListener('input', function(event) {
   if (!numericRegex.test(enteredValue)) {
     // If the value doesn't match, remove any non-numeric characters
     enteredValue = enteredValue.replace(/[^0-9]/g, '');
-    event.target.value = enteredValue;
   }
 
   // Convert the entered value to a number
   const numericValue = parseInt(enteredValue, 10);
 
   // Check if the numeric value is less than the minimum
-  if (numericValue < minimumValue) {
+  if (isNaN(numericValue) || numericValue < minimumValue) {
     // If it's less than the minimum, set the input field value to the minimum
     event.target.value = minimumValue;
+  } else {
+    // If it's greater than or equal to the minimum, set the input field value to the entered value
+    event.target.value = numericValue;
   }
 });
+
 
 
 
