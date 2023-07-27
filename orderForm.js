@@ -642,14 +642,15 @@ function labelOrder(type){
 				Hide('dunnageSelector')
 				Show('whSubmitButton');
 				Show('numberOfLabels')
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,3bugk51/silent/";
 			}else{
 				Show('whCanQtyFormatDiv');
 				Hide('changesDiv');
 				Hide('uploadLabel');
 				Show('whSubmitButton');
 				Hide('labelToggleUploadDiv');
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/";
 			}
-			document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/";
 			break;
 		case 'new':
 			za.innerHTML = "> New/updated SKU";
@@ -666,6 +667,7 @@ function labelOrder(type){
 				Hide('shipAddress')
 				Hide('suppliesButtonDiv')
 				Hide('dunnageSelector')
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,3bugk51/silent/";
 
 			}else{
 				Show('whCanQtyFormatDiv');
@@ -673,8 +675,8 @@ function labelOrder(type){
 				Show('labelToggleUploadDiv');
 				Hide('whSubmitButton');
 				Hide('uploadLabel');
+				document.getElementById('wf-form-warehouseForm').action = 'https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/';
 			}
-			document.getElementById('wf-form-warehouseForm').action = 'https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/';
 			break;
 
 		//Artwork option is likely to be decprecated and removed entirely as uploading a file without an order is unneccesary	
