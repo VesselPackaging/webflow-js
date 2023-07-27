@@ -1489,11 +1489,14 @@ function styleManualRequest(){
   zb.style.height = "100%";}
 
 
-// Set the minimum value to 15,000
+// Get the input element
 const numericInput = document.getElementById('labelQty');
 
 // Set the minimum value to 15,000
 const minimumValue = 15000;
+
+// Flag to track if the initial input was empty
+let initialInputEmpty = true;
 
 // Add an input event listener to the input field
 numericInput.addEventListener('input', function(event) {
@@ -1509,18 +1512,27 @@ numericInput.addEventListener('input', function(event) {
     enteredValue = enteredValue.replace(/[^0-9]/g, '');
   }
 
+  // Check if the entered value is empty
+  const isEmpty = enteredValue.trim() === '';
+  
   // Convert the entered value to a number
   const numericValue = parseInt(enteredValue, 10);
 
-  // Check if the numeric value is less than the minimum
-  if (isNaN(numericValue) || numericValue < minimumValue) {
-    // If it's less than the minimum, set the input field value to the minimum
+  // Check if the entered value is less than the minimum or empty
+  if (isNaN(numericValue) || isEmpty || numericValue < minimumValue) {
+    // If it's less than the minimum or empty, set the input field value to the minimum
     event.target.value = minimumValue;
+    initialInputEmpty = true;
   } else {
     // If it's greater than or equal to the minimum, set the input field value to the entered value
     event.target.value = numericValue;
+    if (initialInputEmpty) {
+      event.target.selectionStart = event.target.selectionEnd = event.target.value.length;
+      initialInputEmpty = false;
+    }
   }
 });
+
 
 
 
