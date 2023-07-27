@@ -1489,14 +1489,14 @@ function styleManualRequest(){
   zb.style.height = "100%";}
 
 
-// Get the input element
+
 const numericInput = document.getElementById('labelQty');
 
 // Set the minimum value to 15,000
 const minimumValue = 15000;
 
-// Flag to track if the initial input was empty
-let initialInputEmpty = true;
+// Flag to track if the input is auto-filled with the minimum value
+let isAutoFilled = false;
 
 // Add an input event listener to the input field
 numericInput.addEventListener('input', function(event) {
@@ -1514,7 +1514,7 @@ numericInput.addEventListener('input', function(event) {
 
   // Check if the entered value is empty
   const isEmpty = enteredValue.trim() === '';
-  
+
   // Convert the entered value to a number
   const numericValue = parseInt(enteredValue, 10);
 
@@ -1522,18 +1522,12 @@ numericInput.addEventListener('input', function(event) {
   if (isNaN(numericValue) || isEmpty || numericValue < minimumValue) {
     // If it's less than the minimum or empty, set the input field value to the minimum
     event.target.value = minimumValue;
-    initialInputEmpty = true;
+    isAutoFilled = true;
   } else {
-    // If it's greater than or equal to the minimum, set the input field value to the entered value
-    event.target.value = numericValue;
-    if (initialInputEmpty) {
-      event.target.selectionStart = event.target.selectionEnd = event.target.value.length;
-      initialInputEmpty = false;
+    // If it's greater than or equal to the minimum and not auto-filled, set the input field value to the entered value
+    if (!isAutoFilled) {
+      event.target.value = numericValue;
     }
+    isAutoFilled = false;
   }
 });
-
-
-
-
-
