@@ -1487,3 +1487,37 @@ function styleManualRequest(){
   zb.style.background = "#231f20";
   zb.style.width = "100%";
   zb.style.height = "100%";}
+
+
+
+// function to help labelqty input field only accept numbers
+const numericInput = document.getElementById('labelQty');
+
+// Add an input event listener to the input field
+numericInput.addEventListener('input', function(event) {
+  // Get the entered value from the input
+  let enteredValue = event.target.value;
+
+  // Use a regular expression to match only numerical values
+  const numericRegex = /^[0-9]*$/;
+
+  // Test if the entered value matches the numeric regex
+  if (!numericRegex.test(enteredValue)) {
+    // If the value doesn't match, remove any non-numeric characters
+    enteredValue = enteredValue.replace(/[^0-9]/g, '');
+    event.target.value = enteredValue;
+  }
+
+  // Convert the entered value to a number
+  const numericValue = parseInt(enteredValue, 10);
+
+  // Set the minimum value to 15,000
+  const minimumValue = 15000;
+
+  // Check if the numeric value is less than the minimum
+  if (numericValue < minimumValue) {
+    // If it's less than the minimum, set the input field value to the minimum
+    event.target.value = minimumValue;
+  }
+});
+
