@@ -209,15 +209,22 @@ function initStatus(){
 //Reset location field. The other half of the restarting or resetting form function. Hides, and shows fields based on their initial settings rather than visibility settings 
 //based on user actions or choices
 function resetLocation(){
-	Show('locationSelection');
-	Show('whCanQtyFormatDiv');
-	Show('whShipping');
+	if(SSonly !== true){
 		Show('whFormShipToText')
 		Show('whFormShipToText-1')
 		Show('whFormShipToTitle')
 		Show('whComments')
 		Show('deliveryMethod');
-		Show('dunnageSelector')
+		Show('dunnageSelector');
+		Show('whFormLabel_whComments');
+		Show('whFormLabel_whCopackEmail');
+		Show('whCopackEmail')
+		Show('whFormLabel_whShipAddress');
+		Show('whShipAddress');
+	}
+	Show('locationSelection');
+	Show('whCanQtyFormatDiv');
+	Show('whShipping');
 	Show('brandNameDiv');
 	Show('suppliesButtonDiv');
 	fadeOut('serviceSelectionWrap');
