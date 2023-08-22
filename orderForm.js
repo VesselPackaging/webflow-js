@@ -643,6 +643,8 @@ function labelOrder(type){
 				Hide('uploadLabel');
 				Hide('labelToggleUploadDiv');
 				Hide('whFormShipToText')
+				Hide('whFormShipToText-1')
+				Hide('whFormShipToText-2')
 				Hide('whFormShipToTitle')
 				Hide('shipAddress')
 				Hide('suppliesButtonDiv')
@@ -670,6 +672,8 @@ function labelOrder(type){
 				Hide('whCanQtyFormatDiv');
 				Hide('whSubmitButton');
 				Hide('whFormShipToText')
+				Hide('whFormShipToText-1')
+				Hide('whFormShipToText-2')
 				Hide('whFormShipToTitle')
 				Hide('shipAddress')
 				Hide('deliveryMethod')
