@@ -209,7 +209,7 @@ function initStatus(){
 //Reset location field. The other half of the restarting or resetting form function. Hides, and shows fields based on their initial settings rather than visibility settings 
 //based on user actions or choices
 function resetLocation(){
-	if(SSonly !== true){
+	if(SSonly === true){
 		Show('whFormShipToText')
 		Show('whFormShipToText-1')
 		Show('whFormShipToTitle')
@@ -687,7 +687,6 @@ function labelOrder(type){
 				Hide('whSubmitButton');
 				Hide('whFormShipToText')
 				Hide('whFormShipToText-1')
-				Hide('whFormShipToText-2')
 				Hide('whComments')
 				Hide('whFormLabel_whComments')
 				Hide('whFormShipToTitle')
