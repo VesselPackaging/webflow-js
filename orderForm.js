@@ -212,6 +212,12 @@ function resetLocation(){
 	Show('locationSelection');
 	Show('whCanQtyFormatDiv');
 	Show('whShipping');
+		Show('whFormShipToText')
+		Show('whFormShipToText-1')
+		Show('whFormShipToTitle')
+		Show('whComments')
+		Show('deliveryMethod');
+		Show('dunnageSelector')
 	Show('brandNameDiv');
 	Show('suppliesButtonDiv');
 	fadeOut('serviceSelectionWrap');
@@ -644,7 +650,6 @@ function labelOrder(type){
 				Hide('labelToggleUploadDiv');
 				Hide('whFormShipToText')
 				Hide('whFormShipToText-1')
-				Hide('whFormShipToText-2')
 				Hide('whFormShipToTitle')
 				Hide('whComments')
 				Hide('whFormLabel_whComments')
