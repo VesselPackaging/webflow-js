@@ -647,6 +647,7 @@ function labelOrder(type){
 				Hide('shipAddress')
 				Hide('suppliesButtonDiv')
 				Hide('dunnageSelector')
+				Hide('deliveryMethod')
 				Show('whSubmitButton');
 				Show('numberOfLabels')
 				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/3bugk51/silent/";
@@ -671,6 +672,7 @@ function labelOrder(type){
 				Hide('whFormShipToText')
 				Hide('whFormShipToTitle')
 				Hide('shipAddress')
+				Hide('deliveryMethod')
 				Hide('suppliesButtonDiv')
 				Hide('dunnageSelector')
 				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/3bugk51/silent/";
