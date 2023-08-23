@@ -1549,11 +1549,14 @@ window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY || window.pageYOffset;
 
   if (scrollTop < lastScrollTop) {
-    manualButton.classList.remove("hidden");
+    // Fade in by changing opacity to 1
+    manualButton.style.opacity = "1";
   } else {
-    manualButton.classList.add("hidden");
+    // Fade out by changing opacity to 0
+    manualButton.style.opacity = "0";
   }
 
   lastScrollTop = scrollTop;
 });
+
 
