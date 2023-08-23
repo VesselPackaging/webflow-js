@@ -1542,3 +1542,18 @@ numericInput.addEventListener('input', function(event) {
   }
 });
 
+let lastScrollTop = 0;
+const manualButton = document.getElementById("manualButton");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY || window.pageYOffset;
+
+  if (scrollTop < lastScrollTop) {
+    manualButton.classList.remove("hidden");
+  } else {
+    manualButton.classList.add("hidden");
+  }
+
+  lastScrollTop = scrollTop;
+});
+
