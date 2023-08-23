@@ -222,6 +222,7 @@ function resetLocation(){
 		Show('whFormLabel_whShipAddress');
 		Show('whShipAddress');
 	}
+	Show('shipAddress');
 	Show('locationSelection');
 	Show('whCanQtyFormatDiv');
 	Show('whShipping');
