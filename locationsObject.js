@@ -237,35 +237,35 @@ const locations = {
 					layerFactor : 575,
 					labelType : {
 						"Blank Cans" : {
-							min : 10,
+							min : 8,
 							max : 340,
-							palletOptions : [["Half/Demie",8],["Full/Complète",17]]
+							palletOptions : [["Half/Demie",8],["Short/Courte",9],["Full/Complète",17]]
 						},
 						"Printed" : {
 							min : 10,
 							max : 340,
 							palletOptions : [["Half/Demie",8],["Full/Complète",17]]
-						},		
+						},
 						"Shrink Sleeve" : {
-							min : 3,
+							min : 9,
 							max : 680,
-							palletOptions : [["Half/Demie",10],["Full/Complète",17]]
+							palletOptions : [["Half/Demie",9],["Full/Complète",17]]
 						},
                         "SS Label" : {
-							min : 3,
-							max : 680,
-							palletOptions : [["Half/Demie",10],["Full/Complète",17]]
-						},
+                           min : 3,
+                           max : 680,
+                           palletOptions : [["Half/Demie",10],["Full/Complète",17]]
+                       },
 						"PSL" : {
 							min : 3,
-							max : 170,
-							palletOptions : [["Half/Demie",5],["Full/Complète",17]]
+							max : 100,
+							palletOptions : [["Half/Demie",5],["Full/Complète",10]]
 						},
-                        "PSL Label": {
-							min : 3,
-							max : 170,
-							palletOptions : [["Half/Demie",5],["Full/Complète",17]]
-						}
+                        "PSL Label" : {
+                           min : 3,
+                           max : 100,
+                           palletOptions : [["Half/Demie",5],["Full/Complète",10]]
+                       }
 					}
 				}
 			},
@@ -408,9 +408,9 @@ const locations = {
 					layerFactor : 575,
 					labelType : {
 						"Blank Cans" : {
-							min : 10,
+							min : 8,
 							max : 340,
-							palletOptions : [["Half/Demie",8],["Full/Complète",17]]
+							palletOptions : [["Half/Demie",8],["Short/Courte",9],["Full/Complète",17]]
 						},
 						"Printed" : {
 							min : 10,
@@ -418,9 +418,9 @@ const locations = {
 							palletOptions : [["Half/Demie",8],["Full/Complète",17]]
 						},
 						"Shrink Sleeve" : {
-							min : 3,
+							min : 9,
 							max : 680,
-							palletOptions : [["Half/Demie",10],["Full/Complète",17]]
+							palletOptions : [["Half/Demie",9],["Full/Complète",17]]
 						},
                         "SS Label" : {
                            min : 3,
