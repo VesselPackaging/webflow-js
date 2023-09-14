@@ -254,6 +254,7 @@ function resetLocation(){
 	Hide('uploadLabel');
 	Hide('eoNumberDiv');
 	Hide('changesDiv');
+	Hide('numberOfLabels')
 	Hide('labelsPSLOptionsDiv');
 	fadeOut('whSupplies');
 	fadeOut('resultDiv');
