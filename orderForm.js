@@ -1234,6 +1234,9 @@ function GetMinDate(service) {
 	  case 'warehouse':
 		leadtime = getLeadTime('leadTime_warehouse_' + a, 0);
 		break;
+	  case 'supplies':
+		leadtime = getLeadTime('leadTime_warehouse_' + a, 0);
+		break;
 	  case 'PSL':
 		leadtime = getLeadTime('leadTime_labels_' + a, 0) + ((c === 'new' || c === 'reorder') ? boost : 0);
 		break;
