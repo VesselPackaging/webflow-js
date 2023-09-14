@@ -505,6 +505,7 @@ function showServiceForm(){
 			e="Blank Cans";
 			Show('whCanFormatDiv');
 			Show('whCanQtyFormatDiv');
+			document.getElementById('whDunnage').disabled = true;
 		}
 		else{
 			e="Supplies Only";
