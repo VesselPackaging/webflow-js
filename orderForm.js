@@ -227,6 +227,7 @@ function resetLocation(){
 	Show('whCanQtyFormatDiv');
 	Show('whShipping');
 	Show('brandNameDiv');
+	Show('labelCanSizeDiv');
 	Show('suppliesButtonDiv');
 	fadeOut('serviceSelectionWrap');
 	fadeOut('companyInfoWrap');
@@ -554,6 +555,7 @@ function showServiceForm(){
 	if(b=="application"){
 		Show('labelTypeWrap');
 		Show('legacyLabels');
+		Show('whCanFormatDiv')
 		Show('brandNameDiv');
 		Show('labelCanSizeDiv');
 		Hide('allInOneLabels');
@@ -600,6 +602,7 @@ function labelOrderType(type){
 		zaFr.innerHTML = "> Legacy: "+e+" application";
 		document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/"
 		Hide('labelsPSLOptionsDiv');
+		Show('whCanFormatDiv')
 		Show('brandNameDiv');
 		Hide('labelToggleUploadDiv');
 		Hide('numberOfLabels')
