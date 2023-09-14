@@ -964,11 +964,13 @@ function initLocation(){
 
 //Copies the company info to hidden fields on the warehouse and mobile canning forms so that it can be submitted smoothly with the order data
 function copyCompanyInfo(service){
+	service = (service !== "mobileCanning") ? "upload" : service;
 	var companyArray=["companyName","contactName","contactEmail","contactPhone"];
 		companyArray.forEach(function(val,ind){
-			if(document.getElementById(companyArray[ind]).value !=null){
-				document.getElementById('upload'+companyArray[ind]).value = document.getElementById(companyArray[ind]).value;
+			try{
+				document.getElementById(service+companyArray[ind]).value = document.getElementById(companyArray[ind]).value;
 			}
+			catch(err){console.log(err);}
 		});
 		if(a=='CGY'){document.getElementById('uploadLocation').value='orders.calgary@vesselpackaging.com';}
 		if(a=='VAN'){document.getElementById('uploadLocation').value='orders.vancouver@vesselpackaging.com';}
