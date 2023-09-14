@@ -554,6 +554,8 @@ function showServiceForm(){
 	if(b=="application"){
 		Show('labelTypeWrap');
 		Show('legacyLabels');
+		Show('brandNameDiv');
+		Show('labelCanSizeDiv');
 		Hide('allInOneLabels');
 		setTimeout(function(){
 			fadeIn('labelTypeWrap');
