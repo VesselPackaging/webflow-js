@@ -972,9 +972,11 @@ function copyCompanyInfo(service){
 			}
 			catch(err){console.log(err);}
 		});
-		if(a=='CGY'){document.getElementById('uploadLocation').value='orders.calgary@vesselpackaging.com';}
-		if(a=='VAN'){document.getElementById('uploadLocation').value='orders.vancouver@vesselpackaging.com';}
-		if(a=='MISS'){document.getElementById('uploadLocation').value='orders.east@vesselpackaging.com';}
+		let uploadLocation = 'uploadLocation';
+		if(service === "mobileCanning"){uploadLocation = "mobileCanningLocation"}
+		if(a=='CGY'){document.getElementById(uploadLocation).value='orders.calgary@vesselpackaging.com';}
+		if(a=='VAN'){document.getElementById(uploadLocation).value='orders.vancouver@vesselpackaging.com';}
+		if(a=='MISS'){document.getElementById(uploadLocation).value='orders.east@vesselpackaging.com';}
 		document.getElementById('uploadOrderDate').value = new Date().toLocaleDateString('en-UK');
 }
 
