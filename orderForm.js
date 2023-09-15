@@ -984,7 +984,7 @@ function copyCompanyInfo(service){
 		if(a=='CGY'){document.getElementById(uploadLocation).value='orders.calgary@vesselpackaging.com';}
 		if(a=='VAN'){document.getElementById(uploadLocation).value='orders.vancouver@vesselpackaging.com';}
 		if(a=='MISS'){document.getElementById(uploadLocation).value='orders.east@vesselpackaging.com';}
-		document.getElementById('uploadOrderDate').value = new Date().toLocaleDateString('en-UK');
+		document.getElementById('uploadOrderDate').value = new Date().toLocaleTimeString('en-UK');
 }
 
 //Adds basic validation to fields based on their min/max values and checks the values on change to see if they are valid or not
