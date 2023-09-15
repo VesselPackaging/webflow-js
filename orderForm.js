@@ -517,7 +517,7 @@ function showServiceForm(){
 		}
 		document.getElementById('uploadOrderType').value=e;
 		Show('warehouseWrap');
-		Show('manualButton');
+		Hide('manualButton'); //I hid this as functionality is not fully baked
 		setTimeout(function(){
 			fadeIn('warehouseWrap');
 			removeAll(whCanSize);
@@ -607,7 +607,7 @@ function labelOrderType(type){
 		Hide('labelToggleUploadDiv');
 		Hide('numberOfLabels')
 		Show('warehouseWrap');
-		Show('manualButton');
+		Hide('manualButton');//I hid this as functionality is not fully baked
 			setTimeout(function(){
 				fadeIn('warehouseWrap');
 				fadeIn('manualButton');
@@ -745,7 +745,7 @@ function labelOrder(type){
 	}
 	else{ */
 	Show('warehouseWrap');
-	Show('manualButton');
+	Hide('manualButton');//I hid this as functionality is not fully baked
 	setTimeout(function(){
 		fadeIn('warehouseWrap');
 		fadeIn('manualButton');
@@ -763,7 +763,7 @@ function printType(type){
 	},300);
 
 	Show('warehouseWrap');
-	Show('manualButton');
+	Hide('manualButton');//I hid this as functionality is not fully baked
 	setTimeout(function(){
 		fadeIn('warehouseWrap');
 		fadeIn('manualButton');
