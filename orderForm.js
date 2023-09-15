@@ -1314,8 +1314,8 @@ function ValidateEmail(event){
 }
 
 // apply email validation to the copacker email field
-var coPackEmail = document.getElementById('whCopackEmail');
-coPackEmail.addEventListener('input', ValidateEmail);
+// var coPackEmail = document.getElementById('whCopackEmail');
+// coPackEmail.addEventListener('input', ValidateEmail);
 
 
 //Similar to the proper validate email field, however doesn't do the active alert
@@ -1534,27 +1534,6 @@ function styleManualRequest(){
   zb.style.background = "#231f20";
   zb.style.width = "100%";
   zb.style.height = "100%";}
-
-
-
-// Get the input element
-const numericInput = document.getElementById('labelQty');
-
-// Add an input event listener to the input field
-numericInput.addEventListener('input', function(event) {
-  // Get the entered value from the input
-  let enteredValue = event.target.value;
-
-  // Use a regular expression to match only numerical values
-  const numericRegex = /^[0-9]*$/;
-
-  // Test if the entered value matches the numeric regex
-  if (!numericRegex.test(enteredValue)) {
-    // If the value doesn't match, remove any non-numeric characters
-    enteredValue = enteredValue.replace(/[^0-9]/g, '');
-    event.target.value = enteredValue;
-  }
-});
 
 let lastScrollTop = 0;
 const manualButton = document.getElementById("manualButton");
