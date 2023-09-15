@@ -384,7 +384,7 @@ const locations = {
 						"Shrink Sleeve" : {
 							min : 3,
 							max : 640,
-							palletOptions : [["Half/Demie",6],["Full/Complète",16]]
+							palletOptions : [["Half/Demie",8],["Full/Complète",16]]
 						},
                         "SS Label" : {
 							min : 3,
