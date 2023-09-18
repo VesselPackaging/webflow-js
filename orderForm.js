@@ -429,24 +429,30 @@ function serviceSelect(service){
 	//Sets the breadcrumb text based on selection. French language support might be unneccesary
 	if(b=='allInOne'){
 		za.innerHTML = "> Cans + Labels";
-		zaFr.innerHTML = "> Cannettes vierges";}
+		zaFr.innerHTML = "> Cannettes vierges";
+		document.getElementById('eoNumber').value="TRUE";}
 	if(b=='labels'){
 		za.innerHTML = "> Label Order";
 		zaFr.innerHTML = "> Cannettes decorées";
 		labelOrderType('SS Label')
-		SSonly = true;}
+		SSonly = true;
+		document.getElementById('eoNumber').value="FALSE";}
 	if(b=='application'){
 		za.innerHTML = "> Label Application";
-		zaFr.innerHTML = "> Cannettes decorées";}
+		zaFr.innerHTML = "> Cannettes decorées";
+		document.getElementById('eoNumber').value="FALSE";}
 	if(b=='warehouse'){
 		za.innerHTML = "> Blank cans";
-		zaFr.innerHTML = "> Cannettes vierges";}
+		zaFr.innerHTML = "> Cannettes vierges";
+		document.getElementById('eoNumber').value="FALSE";}
 	if(b=="supplies"){
 		za.innerHTML = "> Supplies Only";
-		zaFr.innerHTML = "> Supplies Seulment";}
+		zaFr.innerHTML = "> Supplies Seulment";
+		document.getElementById('eoNumber').value="FALSE";}
 	if(b=='mobileCanning'){
 		za.innerHTML = "> Mobile canning";
-		zaFr.innerHTML = "> Mise en cannette mobile";}
+		zaFr.innerHTML = "> Mise en cannette mobile";
+		document.getElementById('eoNumber').value="FALSE";}
 	showServiceForm();
 }
 
