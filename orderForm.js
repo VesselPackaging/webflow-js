@@ -680,7 +680,7 @@ function labelOrder(type){
 				Hide('deliveryMethod')
 				Show('whSubmitButton');
 				Show('numberOfLabels')
-				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/3bugk51/silent/";
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7e8mr2/silent/";
 			}else{
 				Show('whCanQtyFormatDiv');
 				Hide('changesDiv');
