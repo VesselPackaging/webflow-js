@@ -687,7 +687,7 @@ function labelOrder(type){
 				Hide('uploadLabel');
 				Show('whSubmitButton');
 				Hide('labelToggleUploadDiv');
-				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,3bugk51/silent/";
+				document.getElementById('wf-form-warehouseForm').action = "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu,b7e8mr2/silent/";
 			}
 			break;
 		case 'new':
