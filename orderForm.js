@@ -1535,21 +1535,21 @@ function styleManualRequest(){
   zb.style.width = "100%";
   zb.style.height = "100%";}
 
-let lastScrollTop = 0;
-const manualButton = document.getElementById("manualButton");
+// let lastScrollTop = 0;
+// const manualButton = document.getElementById("manualButton");
 
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY || window.pageYOffset;
+// window.addEventListener("scroll", () => {
+//   const scrollTop = window.scrollY || window.pageYOffset;
 
-  if (scrollTop < lastScrollTop) {
-    // Fade in by changing opacity to 1
-    manualButton.style.opacity = "1";
-  } else {
-    // Fade out by changing opacity to 0
-    manualButton.style.opacity = "0";
-  }
+//   if (scrollTop < lastScrollTop) {
+//     // Fade in by changing opacity to 1
+//     manualButton.style.opacity = "1";
+//   } else {
+//     // Fade out by changing opacity to 0
+//     manualButton.style.opacity = "0";
+//   }
 
-  lastScrollTop = scrollTop;
-});
+//   lastScrollTop = scrollTop;
+// });
 
 
