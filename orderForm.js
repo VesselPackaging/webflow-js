@@ -930,7 +930,12 @@ function companyInfoValidate(target){
 //Function that is tied to the submit or next button on a form
 //Calls the form validator and if it passes, allows the user to submit or move on
 function formValidateSubmit(target){
-	document.getElementById('labelBrandName').value = (b === "supplies") ? "Supplies Only" : (b === "warehouse") ? "Blank Cans" : "";
+	if (b === "supplies") {
+		document.getElementById('labelBrandName').value = "Supplies Only";
+	  };
+	  if (b === "warehouse") {
+		document.getElementById('labelBrandName').value = "Blank Cans";
+	  };
 	formValidator(target);
 	if(alertStatus == 0){
 		formSubmit(target);}
