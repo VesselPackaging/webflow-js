@@ -544,6 +544,7 @@ function showServiceForm(){
 	if(b=="allInOne"){
 		Show('labelTypeWrap');
 		Show('allInOneLabels');
+		Show('whCanFormatDiv');
 		Hide('legacyLabels');
 		setTimeout(function(){
 			fadeIn('labelTypeWrap');
