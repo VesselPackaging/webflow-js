@@ -88,7 +88,6 @@ window.onload = function(e){
 		['whCanSize','ToggleInput','whPalletFormat'],
 		['whCanSize','buildOptionsPallets','whPalletFormat'],
 		['whCanSize','ToggleInput','labelPSLLength'],
-		['whCanSize','buildLabelSizes',''],
 		['whPalletFormat','whUpdateLayerQty',''],
 		['whPalletFormat','ToggleInput','whPalletCount'],
 		['whPalletFormat','ToggleInput','whLayerCount'],
@@ -805,13 +804,6 @@ function buildOptionsPallets(){
 	document.getElementById('whLayerCount').value="";
 	document.getElementById('whCanCount').innerHTML="";
 }
-//I can't readily recall why I have this sectioned out as a separate function. I think this was added after the fact, but we are using hardcoded PSL values now
-function buildLabelSizes(){
-	//removeAll(labelPSLLength);
-	//var canSize = document.getElementById('whCanSize').value;
-	//buildOptions(labelOptions['PSL'].labelSizes[canSize],'labelPSLLength');
-}
-
 //Helper function to remove all options from a select box
 function removeAll(target) {
     while (target.options.length > 0) {
