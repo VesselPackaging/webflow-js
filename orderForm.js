@@ -447,7 +447,8 @@ function serviceSelect(service){
 	if(b=="supplies"){
 		za.innerHTML = "> Supplies Only";
 		zaFr.innerHTML = "> Supplies Seulment";
-		document.getElementById('eoNumber').value="FALSE";}
+		document.getElementById('eoNumber').value="FALSE";
+		updateDropdownOptions()}
 	if(b=='mobileCanning'){
 		za.innerHTML = "> Mobile canning";
 		zaFr.innerHTML = "> Mise en cannette mobile";
@@ -457,6 +458,8 @@ function serviceSelect(service){
 
 //called by the serviceSelect function
 function showServiceForm(){
+	//updated dropdown dunnage options
+	updateDropdownOptions()
 	//takes the company information and copies it to hidden fields that are sent to zapier
 	copyCompanyInfo(b); 		
 	//get lead times based on the service selection
@@ -825,8 +828,6 @@ else{
 	document.getElementById('mcIncising').disabled = true;
 }
 }
-
-
 
 //Sets the minimum, and maximum layer quantities based on can size
 function addCanStats(){
@@ -1522,21 +1523,22 @@ function styleManualRequest(){
   zb.style.width = "100%";
   zb.style.height = "100%";}
 
-// let lastScrollTop = 0;
-// const manualButton = document.getElementById("manualButton");
 
-// window.addEventListener("scroll", () => {
-//   const scrollTop = window.scrollY || window.pageYOffset;
-
-//   if (scrollTop < lastScrollTop) {
-//     // Fade in by changing opacity to 1
-//     manualButton.style.opacity = "1";
-//   } else {
-//     // Fade out by changing opacity to 0
-//     manualButton.style.opacity = "0";
-//   }
-
-//   lastScrollTop = scrollTop;
-// });
-
+// This function updates the dropdown options based on the value of the 'b' variable.
+function updateDropdownOptions() {
+	var dropdown = document.getElementById('whDunnage'); // Replace 'whDunnage' with the actual ID of your dropdown element
+  
+	// Remove all existing options except for the first two (1-way and 2-way).
+	while (dropdown.options.length > 2) {
+	  dropdown.remove(2); // Remove options starting from the third option (index 2).
+	}
+  
+	// Add the "None (supplies Only)" option if 'b' is "supplies".
+	if (b === "supplies") {
+	  var newOption = document.createElement('option');
+	  newOption.text = 'None (supplies Only)';
+	  newOption.value = 'none'; // You can set a value for this option if needed.
+	  dropdown.add(newOption);
+	}
+  }
 
