@@ -739,17 +739,6 @@ function labelOrder(type){
 	setTimeout(function(){
 		Hide('labelOrderTypeWrap');
 	},300);
-
-	//For Shrink Sleeves, toggle the option to select Digital or Flexo options (JIT or Apply and Ship)
-	//This is currentl deprecated
-	/*
-	if(e=='Shrink Sleeve'){
-		Show('labelPrintTypeWrap');
-			setTimeout(function(){
-				fadeIn('labelPrintTypeWrap');
-			},300);
-	}
-	else{ */
 	Show('warehouseWrap');
 	Hide('manualButton');//I hid this as functionality is not fully baked
 	setTimeout(function(){
