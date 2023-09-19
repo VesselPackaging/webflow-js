@@ -1528,8 +1528,8 @@ function updateDropdownOptions() {
 	var dropdown = document.getElementById('whDunnage'); // Replace 'whDunnage' with the actual ID of your dropdown element
   
 	// Remove all existing options except for the first two (1-way and 2-way).
-	while (dropdown.options.length > 2) {
-	  dropdown.remove(2); // Remove options starting from the third option (index 2).
+	while (dropdown.options.length > 3) {
+	  dropdown.remove(3); // Remove options starting from the fourth option (index 3).
 	}
   
 	// Add the "None (supplies Only)" option if 'b' is "supplies".
