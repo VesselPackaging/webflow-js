@@ -447,8 +447,7 @@ function serviceSelect(service){
 	if(b=="supplies"){
 		za.innerHTML = "> Supplies Only";
 		zaFr.innerHTML = "> Supplies Seulment";
-		document.getElementById('eoNumber').value="FALSE";
-		updateDropdownOptions()}
+		document.getElementById('eoNumber').value="FALSE";}
 	if(b=='mobileCanning'){
 		za.innerHTML = "> Mobile canning";
 		zaFr.innerHTML = "> Mise en cannette mobile";
