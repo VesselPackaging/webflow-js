@@ -1309,10 +1309,7 @@ function ValidateEmail(event){
 
 // apply email validation to the copacker email field
 var coPackEmail = document.getElementById('whCopackEmail');
-coPackEmail.addEventListener('blur', function() {
-	console.log("I have activated");
-    ValidateFormEmail('whCopackEmail');
-});
+coPackEmail.addEventListener('blur', ValidateEmail);
 
 
 //Similar to the proper validate email field, however doesn't do the active alert
