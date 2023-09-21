@@ -514,6 +514,8 @@ function showServiceForm(){
 			e="Blank Cans";
 			Show('whCanFormatDiv');
 			Show('whCanQtyFormatDiv');
+			document.getElementById('whDunnage').text="2-Way (Plastic)";
+			document.getElementById('whDunnage').value="2-Way";
 			document.getElementById('whDunnage').disabled = true;
 		}
 		else{
