@@ -448,7 +448,7 @@ const locations = {
 			},
 			end: {
 				max : 624,
-				types : ["200 B64 (250 ml Slim Cans Only)", "202 SuperEnd REC Epoxy", "202 LOE REC Epoxy", "202 LOE QC5 Epoxy", "202 LOE QC20 Epoxy", "202 LOE 10ST BPANI"]
+				types : ["200 B64 (250 ml Slim Cans Only)", "202 SuperEnd REC Epoxy", "202 LOE REC Epoxy", "202 LOE QC5 Epoxy", "202 LOE QC20 Epoxy", "202 LOE 10 STATE USA BPANI"]
 			},
 			paktechTypes: ["4pk Black (788/box)", "6pk Black (510/box)", "4pk White (788/box)", "6pk White (510/box)"]
 		},
