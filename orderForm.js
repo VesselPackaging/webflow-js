@@ -1310,6 +1310,7 @@ function ValidateEmail(event){
 // apply email validation to the copacker email field
 var coPackEmail = document.getElementById('whCopackEmail');
 coPackEmail.addEventListener('blur', function() {
+	console.log("I have activated");
     ValidateFormEmail('whCopackEmail');
 });
 
