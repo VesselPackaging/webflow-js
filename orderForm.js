@@ -1379,7 +1379,7 @@ function ValidateDate(event) {
 		  $("label[for='" + event.target.id + "']").html("<span style='color:red'>Date must be after today</span>");
 		  setTimeout(function () {
 			$("label[for='" + event.target.id + "']").html(current);
-			event.target disabled = false;
+			event.target.disabled = false;
 		  }, 1500);
 		} else {
 		  event.target.value = dateVal + "-" + monthVal + "-" + yearVal;
