@@ -1330,99 +1330,113 @@ function ValidateFormEmail(field){
 //Very complicated function to validate a date. This is anonying long and complicated due to the variations in how web browsers and operating systems handle date time
 //A lot of this functionality is in-case Safari users manually enter a date into the date selection field. For some reason their browser doesn't allow disabled fields?
 //Operates like the date selector, but will throw an error if the date is before the minimum time horizon, or if someone enters a date in a stupid or american format
-function ValidateDate(event){
-	var currentMonth = new Date().getMonth()+1;
+function ValidateDate(event) {
+	var currentMonth = new Date().getMonth() + 1;
 	var currentYear = new Date().getFullYear();
 	var currentDate = new Date().getDate();
 	var monthVal;
 	var dateVal;
 	var yearVal;
-	var validStatus=0;
+	var validStatus = 0;
 	var current = $("label[for='" + event.target.id + "']").html();
-
-	if (event.target.value.match(/\d{2}-\d{2}-\d{4}/)!=null){
-		if(event.target.value.match(/\d\d\d\d/g)[0]>=currentYear && event.target.value.match(/\d\d\d\d/g)[0]<=currentYear+1){
-			yearVal = event.target.value.match(/\d\d\d\d/g)[0];
+  
+	// Define an array of blocked dates (as Date objects)
+	var blockedDates = [new Date(currentYear, 10, 11), new Date(currentYear, 11, 25), new Date(currentYear + 1, 0, 1)];
+  
+	// Check if the selected date is in the list of blocked dates
+	var isBlockedDate = blockedDates.some(function (blockedDate) {
+	  return (
+		blockedDate.getDate() === event.target.value.match(/\d\d/g)[0] - 0 &&
+		blockedDate.getMonth() === event.target.value.match(/\d\d/g)[1] - 1 &&
+		blockedDate.getFullYear() === event.target.value.match(/\d\d\d\d/g)[0] - 0
+	  );
+	});
+  
+	if (event.target.value.match(/\d{2}-\d{2}-\d{4}/) != null && !isBlockedDate) {
+	  if (event.target.value.match(/\d\d\d\d/g)[0] >= currentYear && event.target.value.match(/\d\d\d\d/g)[0] <= currentYear + 1) {
+		yearVal = event.target.value.match(/\d\d\d\d/g)[0];
+	  } else {
+		yearVal = currentYear;
+	  }
+	  if (Number(event.target.value.match(/\d\d/g)[1]) <= 12) {
+		monthVal = event.target.value.match(/\d\d/g)[1];
+	  } else {
+		monthVal = 12;
+		validStatus = 1;
+	  }
+  
+	  if (Number(event.target.value.match(/\d\d/g)[0]) <= Number(daysInMonth(monthVal, yearVal))) {
+		dateVal = event.target.value.match(/\d\d/g)[0];
+	  } else {
+		dateVal = daysInMonth(monthVal, yearVal);
+		validStatus = 1;
+	  }
+  
+	  if (event.target.id == "whLabelDate" || event.target.id == "mcLabelArrive") {
+		if (yearVal == currentYear && Number(monthVal) <= Number(currentMonth) && dateVal < Number(currentDate)) {
+		  event.target.value = Number(currentDate).toString().padStart(2, '0') + "-" + currentMonth.toString().padStart(2, '0') + "-" + yearVal;
+		  event.target.disabled = true;
+		  $("label[for='" + event.target.id + "']").html("<span style='color:red'>Date must be after today</span>");
+		  setTimeout(function () {
+			$("label[for='" + event.target.id + "']").html(current);
+			event.target disabled = false;
+		  }, 1500);
+		} else {
+		  event.target.value = dateVal + "-" + monthVal + "-" + yearVal;
+		  if (validStatus == 1) {
+			event.target.disabled = true;
+			$("label[for='" + event.target.id + "']").html("<span style='color:red'>Invalid date</span>");
+			setTimeout(function () {
+			  $("label[for='" + event.target.id + "']").html(current);
+			  event.target.disabled = false;
+			  event.target.value = '';
+			}, 1500);
+			validStatus = 0;
+		  }
 		}
-			else{
-				yearVal = currentYear;
-			}
-		if(Number(event.target.value.match(/\d\d/g)[1])<=12){
-				monthVal = event.target.value.match(/\d\d/g)[1];
-			}
-			else{
-				monthVal = 12;
-				validStatus=1;
-				}
-
-		if(Number(event.target.value.match(/\d\d/g)[0]) <= Number(daysInMonth(monthVal,yearVal))){
-				dateVal = event.target.value.match(/\d\d/g)[0];
-			}
-			else{
-				dateVal = daysInMonth(monthVal,yearVal);
-				validStatus=1;
-			}		
-
-		if(event.target.id=="whLabelDate" || event.target.id=="mcLabelArrive"){
-			if(yearVal==currentYear && Number(monthVal)<=Number(currentMonth) && dateVal<(Number(currentDate))){
-				event.target.value = Number(currentDate).toString().padStart(2, '0')+"-"+currentMonth.toString().padStart(2, '0')+"-"+yearVal;
-				event.target.disabled = true;
-					$("label[for='" + event.target.id + "']").html("<span style='color:red'>Date must be after today</span>");
-					setTimeout(function(){ 
-						$("label[for='" + event.target.id + "']").html(current);
-						event.target.disabled = false;
-					}, 1500);
-			}
-				else{
-					event.target.value = dateVal+"-"+monthVal+"-"+yearVal;
-					if(validStatus==1){
-						event.target.disabled = true;
-					$("label[for='" + event.target.id + "']").html("<span style='color:red'>Invalid date</span>");
-					setTimeout(function(){ 
-						$("label[for='" + event.target.id + "']").html(current);
-						event.target.disabled = false;
-						event.target.value='';
-					}, 1500);
-					validStatus=0;
-					}
-				}
-		}
-		else{
-			if(yearVal==currentYear && Number(monthVal)<=Number(currentMonth) && dateVal<(Number(currentDate)+f*1)){
-				event.target.value = Number(currentDate+f*1).toString().padStart(2, '0')+"-"+currentMonth.toString().padStart(2, '0')+"-"+yearVal;
-				event.target.disabled = true;
-					$("label[for='" + event.target.id + "']").html("<span style='color:red'>Before minimum lead time</span>");
-					setTimeout(function(){ 
-						$("label[for='" + event.target.id + "']").html(current);
-						event.target.disabled = false;
-					}, 1500);
-			}
-				else{
-					event.target.value = dateVal+"-"+monthVal+"-"+yearVal;
-					if(validStatus==1){
-						event.target.disabled = true;
-					$("label[for='" + event.target.id + "']").html("<span style='color:red'>Invalid date</span>");
-					setTimeout(function(){ 
-						$("label[for='" + event.target.id + "']").html(current);
-						event.target.disabled = false;
-						event.target.value='';
-					}, 1500);
-					validStatus=0;
-					}
-				}
-			}
-
-		}
-	else { // bad input
-		event.target.disabled = true;
-		$("label[for='" + event.target.id + "']").html("<span style='color:red'>Please use DD-MM-YYYY format</span>");
-		setTimeout(function(){ 
+	  } else {
+		if (yearVal == currentYear && Number(monthVal) <= Number(currentMonth) && dateVal < (Number(currentDate) + f * 1)) {
+		  event.target.value = Number(currentDate + f * 1).toString().padStart(2, '0') + "-" + currentMonth.toString().padStart(2, '0') + "-" + yearVal;
+		  event.target.disabled = true;
+		  $("label[for='" + event.target.id + "']").html("<span style='color:red'>Before minimum lead time</span>");
+		  setTimeout(function () {
 			$("label[for='" + event.target.id + "']").html(current);
 			event.target.disabled = false;
-			event.target.value='';
-		}, 1500);
+		  }, 1500);
+		} else {
+		  event.target.value = dateVal + "-" + monthVal + "-" + yearVal;
+		  if (validStatus == 1) {
+			event.target.disabled = true;
+			$("label[for='" + event.target.id + "']").html("<span style='color:red'>Invalid date</span>");
+			setTimeout(function () {
+			  $("label[for='" + event.target.id + "']").html(current);
+			  event.target.disabled = false;
+			  event.target.value = '';
+			}, 1500);
+			validStatus = 0;
+		  }
+		}
+	  }
+	} else if (isBlockedDate) {
+	  // Handle blocked date
+	  event.target.disabled = true;
+	  $("label[for='" + event.target.id + "']").html("<span style='color:red'>This date is blocked</span>");
+	  setTimeout(function () {
+		$("label[for='" + event.target.id + "']").html(current);
+		event.target.disabled = false;
+	  }, 1500);
+	} else {
+	  // Handle bad input
+	  event.target.disabled = true;
+	  $("label[for='" + event.target.id + "']").html("<span style='color:red'>Please use DD-MM-YYYY format</span>");
+	  setTimeout(function () {
+		$("label[for='" + event.target.id + "']").html(current);
+		event.target.disabled = false;
+		event.target.value = '';
+	  }, 1500);
 	}
-}
+  }
+  
 
 //helper function for the above nightmare
 function daysInMonth (month, year) {
