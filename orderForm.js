@@ -1256,20 +1256,6 @@ function GetMinDate(service) {
 	}
 	f = leadtime;
 	console.log(f);
-	$('#whShippingDate').datepicker({
-		dateFormat: 'dd-mm-yy', // Set the desired date format
-		beforeShowDay: function(date) {
-			var disabledDates = ['25-10-23', '15-11-23', '25-12-23']; // Dates in the format 'dd-mm-yy'
-			var stringDate = $.datepicker.formatDate('dd-mm-yy', date);
-	
-			if ($.inArray(stringDate, disabledDates) !== -1) {
-				return [false, "disabled", "This date is disabled"];
-			}
-	
-			return [true];
-		}
-	});
-	
 	$("#mcDate").datepicker("option", "minDate", leadtime);
 	$("#whShippingDate").datepicker("option", "minDate", leadtime);
   }
