@@ -654,7 +654,6 @@ function labelOrderType(type){
 
 //For non-legacy label orders only, allows the specification of a new SKU or updated SKU
 function labelOrder(type){
-	GetMinDate(b)
 	if(b=='labels'){
 		SSonly = true;
 	}else{
