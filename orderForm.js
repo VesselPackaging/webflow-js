@@ -1251,7 +1251,7 @@ function GetMinDate(service) {
 		leadtime = getLeadTime('leadTime_mobileCanning_' + a, 0);
 		break;
 	  case 'labels':
-		leadtime = 15 + ((c === 'new') ? 5 : 0);
+		leadtime = 21 + ((c == 'new') ? 7 : 0);
 		break;
 	  default:
 		leadtime = 0;
