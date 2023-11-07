@@ -1232,9 +1232,6 @@ function GetMinDate(service) {
   
 	let leadtime;
 	switch (service) {
-	  case 'labels':
-		leadtime = getLeadTime('15', 0) + ((c === 'new') ? 5 : 0);
-		break;
 	  case 'warehouse':
 		leadtime = getLeadTime('leadTime_warehouse_' + a, 0);
 		break;
@@ -1252,6 +1249,9 @@ function GetMinDate(service) {
 		break;
 	  case 'mobileCanning':
 		leadtime = getLeadTime('leadTime_mobileCanning_' + a, 0);
+		break;
+	  case 'labels':
+		leadtime = 15 + ((c === 'new') ? 5 : 0);
 		break;
 	  default:
 		leadtime = 0;
@@ -1432,7 +1432,6 @@ function daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }
 
-
 //Helper function to handle a user selecting to add a new order. Calls the functions to reset the form back to the service selection screen
 function addNewOrder(){
 	for(var i = 6; i>1; i-=1){
@@ -1553,4 +1552,3 @@ function updateDropdownOptions() {
 	  dropdown.add(newOption);
 	}
   }
-
