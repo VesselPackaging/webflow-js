@@ -1232,6 +1232,9 @@ function GetMinDate(service) {
   
 	let leadtime;
 	switch (service) {
+	  case 'labels':
+		leadtime = getLeadTime('15', 0) + ((c === 'new') ? 5 : 0);
+		break;
 	  case 'warehouse':
 		leadtime = getLeadTime('leadTime_warehouse_' + a, 0);
 		break;
