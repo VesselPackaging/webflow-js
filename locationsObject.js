@@ -312,7 +312,7 @@ const locations = {
 						"Shrink Sleeve" : {
 							min : 3,
 							max : 640,
-							palletOptions : [["Half/Demie",10],["Full/Complète",16]]
+							palletOptions : [["Half/Demie",10],["Tall/Grande",16],["Full/Complète",21]]
 						},
                         "SS Label" : {
 							min : 3,
@@ -322,7 +322,7 @@ const locations = {
 						"PSL" : {
 							min : 3,
 							max : 100,
-							palletOptions : [["Half/Demie",5],["Full/Complète",10]]
+							palletOptions : [["Half/Demie",5],["Tall/Grande",10],["Full/Complète",17]]
 						},
                         "PSL Label" : {
 							min : 3,
@@ -348,7 +348,7 @@ const locations = {
 						"Shrink Sleeve" : {
 							min : 3,
 							max : 560,
-							palletOptions : [["Half/Demie",7],["Full/Complète",13]]
+							palletOptions : [["Half/Demie",7],["Short/Courte",13],["Full/Complète",16]]
 						},
                         "SS Label" : {
 							min : 3,
@@ -358,7 +358,7 @@ const locations = {
 						"PSL" : {
 							min : 3,
 							max : 70,
-							palletOptions : [["Half/Demie",4],["Full/Complète",7]]
+							palletOptions : [["Half/Demie",4],["Short/Courte",7],["Full/Complète",13]]
 						},
                         "PSL Label" : {
 							min : 3,
@@ -384,7 +384,7 @@ const locations = {
 						"Shrink Sleeve" : {
 							min : 3,
 							max : 640,
-							palletOptions : [["Half/Demie",8],["Full/Complète",16]]
+							palletOptions : [["Half/Demie",8],["Short/Courte",13],["Full/Complète",16]]
 						},
                         "SS Label" : {
 							min : 3,
@@ -394,7 +394,7 @@ const locations = {
 						"PSL" : {
 							min : 3,
 							max : 70,
-							palletOptions : [["Half/Demie",4],["Full/Complète",7]]
+							palletOptions : [["Half/Demie",4],["Short/Courte",7],["Full/Complète",13]]
 						},
                         "PSL Label" : {
 							min : 3,
