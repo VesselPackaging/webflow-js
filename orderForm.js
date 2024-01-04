@@ -588,6 +588,7 @@ function showServiceForm(){
 		setTimeout(function(){
 			fadeIn('labelOrderTypeWrap');
 		},300);
+		buildOptions(zb.canFormats,"whCanSize");
 	}
 }
 
