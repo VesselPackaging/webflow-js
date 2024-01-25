@@ -1675,25 +1675,25 @@ function EndsCalc() {
 }
 
 //Helper function to calculate the total estimated mobile canning volume
-function mcVolCalc(event) {
-  console.log(event.target.id);
-  var row = event.target.id.match(/[0-9]/)[0];
-  var layerCount = Number(document.getElementById("mcLayers" + row).value);
-  var canType = document.getElementById("mcSize" + row).value;
-  var canVolume = Number(locations[a].warehouse.cans[canType].volume);
-  var layerFactor = Number(locations[a].warehouse.cans[canType].layerFactor);
-  var estVolume = layerCount * canVolume * layerFactor;
-  document.getElementById("mcVol" + row).innerHTML =
-    Math.round(estVolume / 10) / 10;
-  document.getElementById("hidden_mcVol" + row).value =
-    Math.round(estVolume) / 100;
-}
+// function mcVolCalc(event) {
+//   console.log(event.target.id);
+//   var row = event.target.id.match(/[0-9]/)[0];
+//   var layerCount = Number(document.getElementById("mcLayers" + row).value);
+//   var canType = document.getElementById("mcSize" + row).value;
+//   var canVolume = Number(locations[a].warehouse.cans[canType].volume);
+//   var layerFactor = Number(locations[a].warehouse.cans[canType].layerFactor);
+//   var estVolume = layerCount * canVolume * layerFactor;
+//   document.getElementById("mcVol" + row).innerHTML =
+//     Math.round(estVolume / 10) / 10;
+//   document.getElementById("hidden_mcVol" + row).value =
+//     Math.round(estVolume) / 100;
+// }
 
-//Unused language toggle function to switch the visibility of english and french tagged objects
-function swapLanguage(event) {
-  $(".english").toggleClass("hidden");
-  $(".french").toggleClass("hidden");
-}
+// //Unused language toggle function to switch the visibility of english and french tagged objects
+// function swapLanguage(event) {
+//   $(".english").toggleClass("hidden");
+//   $(".french").toggleClass("hidden");
+// }
 
 //Helper function to allow manual requests
 //Disables form validation and instructs the user to complete as much details as possible
