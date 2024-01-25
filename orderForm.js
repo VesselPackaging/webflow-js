@@ -633,6 +633,8 @@ function showServiceForm() {
     Show("labelCanSizeDiv");
     Show("warehouseLabelOrder");
     Show("labelArrive");
+    Show("labelsuplier");
+    Show("labelsAriveDate");
     Hide("allInOneLabels");
     setTimeout(function () {
       fadeIn("labelTypeWrap");
