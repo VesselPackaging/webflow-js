@@ -285,6 +285,7 @@ function resetLocation() {
     Hide("manualwhSubmitButton");
   }, 300);
   Hide("whSupplies");
+  Hide("labelArrive");
   Hide("resultDiv");
   Hide("uploadLabel");
   Hide("eoNumberDiv");
@@ -562,6 +563,7 @@ function showServiceForm() {
     Hide("labelToggleUploadDiv");
     Hide("brandNameDiv");
     Hide("labelToggleUpload");
+    Hide("warehouseLabelOrder");
     Show("whSubmitButton");
     document.getElementById("wf-form-warehouseForm").action =
       "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
@@ -575,6 +577,7 @@ function showServiceForm() {
       e = "Blank Cans";
       Show("whCanFormatDiv");
       Show("whCanQtyFormatDiv");
+      Hide("warehouseLabelOrder");
       document.getElementById("whDunnage").text = "2-Way (Plastic)";
       document.getElementById("whDunnage").value = "2-Way";
       document.getElementById("whDunnage").disabled = true;
@@ -606,6 +609,7 @@ function showServiceForm() {
     Show("labelTypeWrap");
     Show("allInOneLabels");
     Show("whCanFormatDiv");
+    Hide("labelArrive");
     Hide("legacyLabels");
     setTimeout(function () {
       fadeIn("labelTypeWrap");
@@ -627,6 +631,8 @@ function showServiceForm() {
     Show("whCanFormatDiv");
     Show("brandNameDiv");
     Show("labelCanSizeDiv");
+    Show("warehouseLabelOrder");
+    Show("labelArrive");
     Hide("allInOneLabels");
     setTimeout(function () {
       fadeIn("labelTypeWrap");
@@ -644,6 +650,7 @@ function showServiceForm() {
   }
   if (b == "labels") {
     Show("labelOrderTypeWrap");
+    Hide("labelArrive");
     setTimeout(function () {
       fadeIn("labelOrderTypeWrap");
     }, 300);
@@ -676,6 +683,7 @@ function labelOrderType(type) {
     Hide("labelsPSLOptionsDiv");
     Show("whCanFormatDiv");
     Show("brandNameDiv");
+    Show("labelArrive");
     Hide("labelToggleUploadDiv");
     Hide("numberOfLabels");
     Show("warehouseWrap");
@@ -743,6 +751,7 @@ function labelOrder(type) {
         Hide("suppliesButtonDiv");
         Hide("dunnageSelector");
         Hide("deliveryMethod");
+        Hide("labelArrive");
         Show("whSubmitButton");
         Show("numberOfLabels");
         document.getElementById("wf-form-warehouseForm").action =
