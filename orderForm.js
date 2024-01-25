@@ -285,7 +285,6 @@ function resetLocation() {
     Hide("manualwhSubmitButton");
   }, 300);
   Hide("whSupplies");
-  Hide("labelArrive");
   Hide("resultDiv");
   Hide("uploadLabel");
   Hide("eoNumberDiv");
@@ -563,7 +562,6 @@ function showServiceForm() {
     Hide("labelToggleUploadDiv");
     Hide("brandNameDiv");
     Hide("labelToggleUpload");
-    Hide("warehouseLabelOrder");
     Show("whSubmitButton");
     document.getElementById("wf-form-warehouseForm").action =
       "https://hooks.zapier.com/hooks/catch/4099777/b7qj5jw,b7lymnu/silent/";
@@ -577,7 +575,6 @@ function showServiceForm() {
       e = "Blank Cans";
       Show("whCanFormatDiv");
       Show("whCanQtyFormatDiv");
-      Hide("warehouseLabelOrder");
       document.getElementById("whDunnage").text = "2-Way (Plastic)";
       document.getElementById("whDunnage").value = "2-Way";
       document.getElementById("whDunnage").disabled = true;
@@ -609,7 +606,6 @@ function showServiceForm() {
     Show("labelTypeWrap");
     Show("allInOneLabels");
     Show("whCanFormatDiv");
-    Hide("labelArrive");
     Hide("legacyLabels");
     setTimeout(function () {
       fadeIn("labelTypeWrap");
@@ -631,10 +627,6 @@ function showServiceForm() {
     Show("whCanFormatDiv");
     Show("brandNameDiv");
     Show("labelCanSizeDiv");
-    Show("warehouseLabelOrder");
-    Show("labelArrive");
-    Show("labelsuplier");
-    Show("labelsAriveDate");
     Hide("allInOneLabels");
     setTimeout(function () {
       fadeIn("labelTypeWrap");
@@ -652,7 +644,6 @@ function showServiceForm() {
   }
   if (b == "labels") {
     Show("labelOrderTypeWrap");
-    Hide("labelArrive");
     setTimeout(function () {
       fadeIn("labelOrderTypeWrap");
     }, 300);
@@ -685,7 +676,6 @@ function labelOrderType(type) {
     Hide("labelsPSLOptionsDiv");
     Show("whCanFormatDiv");
     Show("brandNameDiv");
-    Show("labelArrive");
     Hide("labelToggleUploadDiv");
     Hide("numberOfLabels");
     Show("warehouseWrap");
@@ -753,7 +743,6 @@ function labelOrder(type) {
         Hide("suppliesButtonDiv");
         Hide("dunnageSelector");
         Hide("deliveryMethod");
-        Hide("labelArrive");
         Show("whSubmitButton");
         Show("numberOfLabels");
         document.getElementById("wf-form-warehouseForm").action =
@@ -1675,25 +1664,25 @@ function EndsCalc() {
 }
 
 //Helper function to calculate the total estimated mobile canning volume
-// function mcVolCalc(event) {
-//   console.log(event.target.id);
-//   var row = event.target.id.match(/[0-9]/)[0];
-//   var layerCount = Number(document.getElementById("mcLayers" + row).value);
-//   var canType = document.getElementById("mcSize" + row).value;
-//   var canVolume = Number(locations[a].warehouse.cans[canType].volume);
-//   var layerFactor = Number(locations[a].warehouse.cans[canType].layerFactor);
-//   var estVolume = layerCount * canVolume * layerFactor;
-//   document.getElementById("mcVol" + row).innerHTML =
-//     Math.round(estVolume / 10) / 10;
-//   document.getElementById("hidden_mcVol" + row).value =
-//     Math.round(estVolume) / 100;
-// }
+function mcVolCalc(event) {
+  console.log(event.target.id);
+  var row = event.target.id.match(/[0-9]/)[0];
+  var layerCount = Number(document.getElementById("mcLayers" + row).value);
+  var canType = document.getElementById("mcSize" + row).value;
+  var canVolume = Number(locations[a].warehouse.cans[canType].volume);
+  var layerFactor = Number(locations[a].warehouse.cans[canType].layerFactor);
+  var estVolume = layerCount * canVolume * layerFactor;
+  document.getElementById("mcVol" + row).innerHTML =
+    Math.round(estVolume / 10) / 10;
+  document.getElementById("hidden_mcVol" + row).value =
+    Math.round(estVolume) / 100;
+}
 
-// //Unused language toggle function to switch the visibility of english and french tagged objects
-// function swapLanguage(event) {
-//   $(".english").toggleClass("hidden");
-//   $(".french").toggleClass("hidden");
-// }
+//Unused language toggle function to switch the visibility of english and french tagged objects
+function swapLanguage(event) {
+  $(".english").toggleClass("hidden");
+  $(".french").toggleClass("hidden");
+}
 
 //Helper function to allow manual requests
 //Disables form validation and instructs the user to complete as much details as possible
