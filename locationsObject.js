@@ -415,7 +415,6 @@ const locations = {
           "202 LOE REC Epoxy",
           "202 LOE 10 STATE USA BPANI",
           "202 SuperEnd REC Epoxy",
-          "202 SuperEnd 10 STATE USA BPANI",
         ],
       },
       paktechTypes: [
